@@ -1,0 +1,102 @@
+body{
+  font-family: 'Quicksand', sans-serif;
+  background-color: #202020;
+  color:#efefef;
+}
+
+
+.page{
+  display: flex;
+  min-height: 100%;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 60vw;
+  margin:0 auto;
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+}
+
+#site-header{
+  background-color: #1b1b1b;
+  padding: 0 2rem;
+}
+
+#site-header a{
+  color:#efefef;
+  text-decoration: none;
+}
+
+#site-header a:hover{
+  color:#c9c8c8;
+}
+
+#navbar{
+display: flex;
+flex-flow: row nowrap;
+justify-content: space-between;
+align-items: center;
+}
+
+#nav-head{
+  font-family: 'Righteous', cursive;
+  font-size: 35px;
+  margin: 0.4rem 0;
+}
+
+#navbar ul{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  margin:0 2rem;
+}
+
+#navbar ul li a{
+  color:#a2a2a2;
+  font-size: 20px;
+  margin: 0.3rem 2rem;
+  text-decoration: none;
+}
+
+#navbar ul li a:hover{
+  color:#d1d1d1
+}
+#navbar ul li a.active{
+  color:#ffffff;
+}
+
+body main{
+  width:60vw;
+  margin: 5rem auto;
+}
+
+body main h2{
+  margin: 0.7rem auto;
+  width:fit-content;
+}
+
+.option-container{
+  display: flex;
+  flex-flow:column nowrap;
+  align-items:start;
+  justify-content: space-evenly;
+  margin:3rem 0;
+}
+
+.option-container div{
+width: 100%;
+margin:0.5rem 0;
+}
+
+
+#add-car-form{
+  width: 100%;
+}
+
+.page .table{
+  max-width: 45vw;
+  margin: 0 auto;
+}
+
