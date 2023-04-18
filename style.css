@@ -9,7 +9,7 @@ body{
 
 .page{
   display: flex;
-  min-height: 100%;
+  min-height: 200vh;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-between;
@@ -23,10 +23,37 @@ body{
   display: flex;
   flex-direction: row nowrap;
   width:100%;
-  padding: 1rem 2rem;
+  padding: 0.3rem 2rem;
   align-items: center;
   justify-content: space-between;
   background-color: #eff7fb;
+  position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+
+.navbar-start{
+  opacity: 1;
+	transform: translateY(0);
+	padding: 1rem 2rem;
+	box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+
+.navbar-start.scrolled{
+	box-shadow: 0 5px 10px 0 rgba(138, 155, 165, 0.15);
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+
+.navbar-start.scroll-on .navbar-brand img{
+	height:60px;
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
 }
 
 .navbar-brand{
