@@ -4,7 +4,7 @@ body{
 	line-height: 24px;
 	font-weight: 400;
   background-color: #faf6f6;
-  color:#496A81;
+  color:#365164;
 }
 
 .page{
@@ -66,10 +66,10 @@ body{
   margin:0;
 }
 
-.navbar-brand a{
+.navbar-brand a, .footer-brand{
   text-decoration: none;
   font-weight: 600;
-  color:#52baff;
+  color:#3277a4;
   font-family: "DynaPuff";
 }
 
@@ -115,12 +115,12 @@ body{
 
 
 .nav-link{
-	color: #52baff !important;
+	color: #3277a4 !important;
 	font-weight: 500;
     transition: all 200ms linear;
 }
 .nav-item:hover .nav-link{
-	color: #1069a3 !important;
+	color: #053451 !important;
 }
 .nav-item.active .nav-link{
 	color: #c4def0 !important;
@@ -151,4 +151,21 @@ body{
 .nav-item{
 	position: relative;
     transition: all 200ms linear;
+}
+
+
+.site-footer{
+	background-color: #eff7fb;
+	color: #3277a4;
+}
+
+footer img{
+	width: 20px;
+	height:20px;
+	filter: invert(36%) sepia(38%) saturate(723%) hue-rotate(160deg) brightness(106%) contrast(95%);
+}
+
+
+.blue-bottom-border{
+	border-bottom: 1px solid #a9d0eb;
 }
