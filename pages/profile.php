@@ -9,7 +9,9 @@ $GLOBALS['hideForm'] = false; //variables that holds if the form is to be hideen
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
   if (isset($_GET['signup'])) {
-    echo "<h1>Signup SucessFull</h1>";
+    echo "<div class='alert alert-success w-75' role='alert'>
+    Your account has been created successfully!
+  </div>";
   }
 } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST[''])) {
@@ -29,7 +31,9 @@ if (!$GLOBALS['hideForm']) {
   <div class="profile-container">
     <div class="card w-35 p-5">
       <form action="/ChildCare/pages/profile.php" method="POST" novalidate>
-        <h1>Hi, Nandadev</h1>
+        <h1>Hi,
+          <?php echo $fname; ?>
+        </h1>
         <div class="row g-2 mb-3">
           <div class="col-md">
             <label for="fname" class="form-label">First Name</label>
