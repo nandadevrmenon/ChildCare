@@ -1,5 +1,5 @@
 <?php
-  require_once("components/header.php");
+require_once(dirname(__FILE__) . "/components/header.php");
 ?>
 
 
@@ -16,6 +16,9 @@
 
 
 
+
+
 <?php
-  require_once("components/footer.php");
+var_dump($GLOBALS["errors"]);
+require_once(dirname(__FILE__) . "/components/footer.php");
 ?>
