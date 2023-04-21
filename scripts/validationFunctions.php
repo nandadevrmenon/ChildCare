@@ -9,7 +9,7 @@ function cleanInput($input)
 
 function validateFirstName($name)
 {
-  if (empty($make)) {
+  if (empty($name)) {
     $GLOBALS["errors"]["fname"] = "Field cannot be empty.";
   } else if (strlen($name) > 40) {
     $GLOBALS['errors']["fname"] = "Name length should be less than 50.";
@@ -20,7 +20,7 @@ function validateFirstName($name)
 
 function validateLastName($name)
 {
-  if (empty($make)) {
+  if (empty($name)) {
     $GLOBALS["errors"]["lname"] = "Field cannot be empty.";
   } else if (strlen($name) > 40) {
     $GLOBALS['errors']["lname"] = "Name length should be less than 50.";

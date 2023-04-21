@@ -1,7 +1,7 @@
 <?php
-require_once(dirname(__FILE__) . "/../components/header.php");
-require_once(dirname(__FILE__) . "/../scripts/validationFunctions.php");
-require_once(dirname(__FILE__) . "/../database.php"); //require the db 
+require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/header.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/validationFunctions.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/database.php"); //require the db 
 
 $GLOBALS['errors'] = array();
 $GLOBALS['hideForm'] = false; //variables that holds if the form is to be hideen after registration or not
@@ -150,5 +150,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 <?php
 var_dump($GLOBALS['errors']);
-require_once(dirname(__FILE__) . "/../components/footer.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/footer.php");
 ?>

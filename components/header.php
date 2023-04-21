@@ -9,8 +9,8 @@ session_start();
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../bootstrap.css" />
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="/ChildCare/bootstrap.css" />
+  <link rel="stylesheet" href="/ChildCare/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -22,8 +22,8 @@ session_start();
 <body>
   <header class="navbar navbar-start">
     <div class="navbar-brand">
-      <a href="<?php echo dirname(__FILE__) . "../index.php" ?>"><img src="../images/icons/logo.png" alt="LOGO" /></a>
-      <a href="index.html">Tiny
+      <a href="/ChildCare/index.php"><img src="/ChildCare/images/icons/logo.png" alt="LOGO" /></a>
+      <a href="/ChildCare/index.php">Tiny
         Treasures</a>
     </div>
     <nav class="nav-list-container" id="navbarLinks">

@@ -7,9 +7,9 @@
         <span>Connect with us on these social networks:</span>
       </div>
       <div class="me-5 d-flex w-50 align-items-center justify-content-end">
-        <a><img src="../images/icons/instagram.svg" alt="Instagram Logo" class="me-4"></a>
-        <a><img src="../images/icons/facebook.svg" alt="Facebook Logo"></a>
-        <a><img src="../images/icons/github.svg" alt="Github Logo" class="ms-4"></a>
+        <a><img src="/ChildCare/images/icons/instagram.svg" alt="Instagram Logo" class="me-4"></a>
+        <a><img src="/ChildCare/images/icons/facebook.svg" alt="Facebook Logo"></a>
+        <a><img src="/ChildCare/images/icons/github.svg" alt="Github Logo" class="ms-4"></a>
       </div>
     </div>
   </div>
@@ -21,10 +21,11 @@
             Tiny Treasures
           </h6>
           <p>
-            At Tiny Treasures, we're committed to providing a nurturing and fun environment for your child to grow, learn, and explore the world around them. Contact us today to learn more.
+            At Tiny Treasures, we're committed to providing a nurturing and fun environment for your child to grow,
+            learn, and explore the world around them. Contact us today to learn more.
           </p>
         </div>
-      
+
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
           <h6 class="text-uppercase fw-bold mb-4">
@@ -63,19 +64,20 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
           <p>
-            <img class="me-3" src="../images/icons/house-fill.svg" alt="Address icon">
+            <img class="me-3" src="/ChildCare/images/icons/house-fill.svg" alt="Address icon">
             Belgard, Dublin, D24XC2G
           </p>
           <p>
-            <img class="me-3" src="../images/icons/envelope-fill.svg" alt="email icon">
+            <img class="me-3" src="/ChildCare/images/icons/envelope-fill.svg" alt="email icon">
             info@example.com
           </p>
-          <p> <img class="me-3" src="../images/icons/telephone-fill.svg" alt="phone icon"> + 01 234 567 88</p>
+          <p> <img class="me-3" src="/ChildCare/images/icons/telephone-fill.svg" alt="phone icon"> + 01 234 567 88</p>
         </div>
       </div>
     </div>
   </div>
 </footer>
-<script src="index.js"></script>
+<script src="/ChildCare/index.js"></script>
 </body>
+
 </html>
