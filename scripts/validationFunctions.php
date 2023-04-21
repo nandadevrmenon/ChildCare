@@ -7,6 +7,11 @@ function cleanInput($input)
   return $input;
 }
 
+function cleanName($name)
+{
+  return ucwords(trim(htmlentities(strip_tags($name))));
+}
+
 function validateFirstName($name)
 {
   if (empty($name)) {
@@ -22,9 +27,11 @@ function validateLastName($name)
 {
   if (empty($name)) {
     $GLOBALS["errors"]["lname"] = "Field cannot be empty.";
+  } else if (count(explode(" ", $name)) > 2) {
+    $GLOBALS["errors"]["lname"] = "Cannot contain more than 1 space char.";
   } else if (strlen($name) > 40) {
     $GLOBALS['errors']["lname"] = "Name length should be less than 50.";
-  } else if (!preg_match('/^[a-zA-z]*$/', $name)) {
+  } else if (!preg_match('/^[a-zA-Z]+ ?[a-zA-Z]*$/', $name)) {
     $GLOBALS['errors']["lname"] = "Illegal Character Found.";
   }
 }
@@ -35,7 +42,7 @@ function validatePhone($phone)
     $GLOBALS["errors"]["phone"] = "Field cannot be empty.";
   } else if (strlen($phone) > 10) {
     $GLOBALS['errors']["phone"] = "Phone number length should be less then 10 ";
-  } else if (!preg_match("/^(01[0-9]{7})|(0[0-9]{9})*$/", $phone)) {
+  } else if (!preg_match("/^(01[0-9]{7})|(0[1-9]{9})$/", $phone)) {
     $GLOBALS['errors']["phone"] = "Not an Irish number";
   }
 }
@@ -43,7 +50,6 @@ function validatePhone($phone)
 
 function validateEmail($email)
 {
-  echo filter_var($email, FILTER_VALIDATE_EMAIL);
   if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
     $GLOBALS['errors']["email"] = "Not a valid email.";
   }
@@ -57,5 +63,4 @@ function validatepasswords($pw, $confirmPw)
   }
 }
 
-// password_hash($_POST["password"], PASSWORD_DEFAULT);
 ?>
