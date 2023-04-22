@@ -5,19 +5,26 @@ body{
 	font-weight: 400;
   background-color: #faf6f6;
   color:#365164;
+	position:relative;
 }
 
 .page{
-  display: flex;
-  min-height: 200vh;
+	position: relative ;
+	top:50px;
+	display: flex;
+	min-height: 100vh;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: space-between;
-  width: 60vw;
+  width: 100vw;
   margin:0 auto;
   padding: 3rem 0;
   margin-bottom: 3rem;
 }
+
+
+/* All the header css goes here */
+
+
 
 .navbar{
   display: flex;
@@ -153,6 +160,35 @@ body{
     transition: all 200ms linear;
 }
 
+
+/* All the content based css here */
+
+.form-card{
+	width: 80%;
+}
+
+
+.profile-container{
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* All the footer based css here */
 
 .site-footer{
 	background-color: #eff7fb;
