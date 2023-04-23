@@ -6,6 +6,8 @@ body{
   background-color: #faf6f6;
   color:#365164;
 	position:relative;
+	background-image: url("/ChildCare/images/bg.png");
+	background-repeat: repeat;
 }
 
 .page{

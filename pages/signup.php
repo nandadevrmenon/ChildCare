@@ -30,15 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $statement->bind_param('sssss', $fname, $lname, $email, $phone, $password); //prevents sql injections
 
       $statement->execute(); //we insert the user into the database
-      if ($statement->affected_rows == 1) { //if a user has been added succesfully 
-        //       echo "<h4 class='mb-4'>Your car has been added to our database <span class='text-success'>successfully!</span></h4><div class='mt-3 mb-3'><a href='addCar.php'>
-        //   <button class='btn btn-primary' type='button'>Add New Car</button></a>
-        // </div><div class='mt-3 mb-5'><a href='index.html'>
-        // <button class='btn btn-primary' type='button'>Back to Home</button></a>
-        // </div>";
-        //     } else { //this else statment is kind of pointless because if no rows are effected it is probably an uncaught sql error taht stop the system and throw a a system error anyway. So this code wont run
-        //       echo "<h2>An unexpected error occured. Please Try Again later</h2>";
-
+      if ($statement->affected_rows == 1) { //if a row is affected(successful insertion)
         $_SESSION['email'] = $email;
         $rootPath = $_SERVER['DOCUMENT_ROOT'];
         header("Location:profile.php?signup=successful");
