@@ -16,7 +16,7 @@ $title = 'date_details_edit';
 <div class = "grid" style = "display: grid; place-items: center;background-color: whitesmoke;padding: 10rem; height: 100%; position: relative;">
     <h1 class= "text-center">Daily Log Information </h1>
     
-<form  action = "success.php"method= "GET" novalidate>
+<form  action = "dailylogedit_success.php"method= "GET" novalidate>
     <div class="mb-3">
         <label for="child_id" class="form-label">Child_id</label>
         <input type="number" class="form-control" id="child_id" name="child_id" aria-describedby="child_id">  
