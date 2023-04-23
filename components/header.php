@@ -52,9 +52,12 @@ session_start();
             <a class='nav-link' href='/ChildCare/pages/dailyLog.php'>Daily Log</a>
           </li>";
             echo "<li class='nav-item mx-3'>
-            <a class='nav-link' href='/ChildCare/pages/register.php'>Register Child</a>
+            <a class='nav-link' href='/ChildCare/pages/register.php'>Register</a>
           </li>";
           }
+          echo "<li class='nav-item mx-3'>
+            <a class='nav-link' href='/ChildCare/pages/profile.php'>Profile</a>
+          </li>";
           echo "<li class='nav-item mx-3'>
             <a class='nav-link' href='/ChildCare/scripts/logout.php'>Log Out</a>
           </li>";

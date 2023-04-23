@@ -2,6 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/header.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/validationFunctions.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/fetchFunctions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/mailer.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/database.php"; //require the db 
 
 $GLOBALS['errors'] = array();
@@ -32,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $statement->execute(); //we insert the user into the database
       if ($statement->affected_rows == 1) { //if a row is affected(successful insertion)
         $_SESSION['email'] = $email;
+        sendConfirmationMail($fname, $email);
         header("Location:profile.php?signup=successful");
       }
     } else {

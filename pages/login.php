@@ -18,6 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo password_verify($password, $pwInDatabase);
       if (password_verify($password, $pwInDatabase)) { //if a row is affected(successful insertion)
         $_SESSION['email'] = $email;
+        if (userIsAdmin($email))
+          $_SESSION['privilege'] = "super";
         header("Location:profile.php?login=successful");
       } else {
         $GLOBALS['errors']['password'] = "Incorrect password";
