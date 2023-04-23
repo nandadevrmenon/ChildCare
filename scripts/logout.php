@@ -49,7 +49,7 @@ session_start();
     unset($_SESSION['email']);
 
     echo "<div class='alert alert-success w-75' role='alert'>
-      You have been logged out sucessfully!
+      You have logged out sucessfully!
     </div>";
     echo "<a class='btn btn-primary' href='/ChildCare/' role='button'>Back to Home Page</a>";
     ?>
