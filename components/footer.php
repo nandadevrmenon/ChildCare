@@ -26,22 +26,23 @@
           </p>
         </div>
 
+
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
           <h6 class="text-uppercase fw-bold mb-4">
-            Products
+            Services
           </h6>
           <p>
-            <a href="#!" class="text-reset">Angular</a>
+            <a href="#!" class="text-reset">Baby</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">React</a>
+            <a href="#!" class="text-reset">Wobbler</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Vue</a>
+            <a href="#!" class="text-reset">Toddler</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Laravel</a>
+            <a href="#!" class="text-reset">Pre-School</a>
           </p>
         </div>
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -49,17 +50,28 @@
             Useful links
           </h6>
           <p>
-            <a href="#!" class="text-reset">Pricing</a>
+            <a href="#!" class="text-reset">Testimonials</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Settings</a>
+            <a href="#!" class="text-reset">Contact Us</a>
           </p>
-          <p>
-            <a href="#!" class="text-reset">Orders</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Help</a>
-          </p>
+          <?php
+          if (isset($_SESSION['email'])) {
+            echo "<p>
+              <a href='/ChildCare/pages/dailyLog.php' class='text-reset'>Daily Log</a>
+            </p>";
+            echo "<p>
+              <a href='/ChildCare/pages/profile.php' class='text-reset'>Profile</a>
+            </p>";
+          } else {
+            echo "<p>
+            <a href='/ChildCare/pages/login.php' class='text-reset'>Log In</a>
+            </p>";
+            echo "<p>
+            <a href='/ChildCare/pages/services.php' class='text-reset'>Services</a>
+            </p>";
+          }
+          ?>
         </div>
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <h6 class="text-uppercase fw-bold mb-4">Contact</h6>

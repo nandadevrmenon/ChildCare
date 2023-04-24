@@ -1,8 +1,9 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/header.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/validationFunctions.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/fetchFunctions.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/database.php"); //require the db 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/header.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/validationFunctions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/fetchFunctions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/database.php"; //require the db 
+
 
 $GLOBALS['errors'] = array();
 $GLOBALS['hideForm'] = false; //variables that holds if the form is to be hideen after registration or not
@@ -13,14 +14,17 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     Your account has been created successfully!
   </div>";
   }
+  if (isset($_GET['login'])) {
+    echo "<div class='alert alert-success w-75' role='alert'>
+    You have logged in successfully!
+  </div>";
+  }
 } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST[''])) {
 
   }
 }
 
-// }
-// }
 if (!$GLOBALS['hideForm']) {
   $email = $_SESSION['email'];
   $userInfo = getUserInfo($email);
@@ -30,7 +34,7 @@ if (!$GLOBALS['hideForm']) {
   ?>
   <div class="profile-container">
     <div class="card w-35 p-5">
-      <form action="/ChildCare/pages/profile.php" method="POST" novalidate>
+      <form action="/ChildCare/scripts/deleteAcc.php" method="POST" novalidate>
         <h1>Hi,
           <?php echo $fname; ?>
         </h1>
@@ -69,7 +73,7 @@ if (!$GLOBALS['hideForm']) {
         </div>
         <div class="row g-2">
           <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Create Account</button>
+            <button type="submit" class="btn btn-danger mb-3">Delete Account</button>
           </div>
         </div>
       </form>

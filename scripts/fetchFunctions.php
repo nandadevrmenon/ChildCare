@@ -22,4 +22,28 @@ function getUserInfo($email)
   return $result; //returnt that associative array
 
 }
+
+function getUserPW($email)
+{
+  $sqlString = "SELECT `password` FROM `user` WHERE `email` = ?";
+  $statement = $GLOBALS['db']->prepare($sqlString); //we check if the car with same registrtion or VIN exists already in the db 
+  $statement->bind_param('s', $email);
+  $statement->execute();
+  $result = $statement->get_result();
+  $result = $result->fetch_assoc();
+  return $result['password']; //if we get a result it means that such a car exists so we should prevent the addition of the new car so as to prevent duplicate entries
+
+}
+
+
+function userIsAdmin($email)
+{
+  $sqlString = "SELECT `privilege` FROM `user` WHERE `email` = ?";
+  $statement = $GLOBALS['db']->prepare($sqlString); //we check if the car with same registrtion or VIN exists already in the db 
+  $statement->bind_param('s', $email);
+  $statement->execute();
+  $result = $statement->get_result();
+  $result = $result->fetch_assoc();
+  return $result['privilege'] == "admin"; //if we get a result it means that such a car exists so we should prevent the addition of the new car so as to prevent duplicate entries
+}
 ?>

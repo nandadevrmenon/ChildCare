@@ -29,18 +29,40 @@ session_start();
     <nav class="nav-list-container" id="navbarLinks">
       <ul class="nav-list">
         <li class="nav-item mx-3">
-          <a class="nav-link" href="#">Services</a>
+          <a class="nav-link" href="/ChildCare/pages/services.php">Services</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" href="#">Register</a>
-        </li>
-
-        <li class="nav-item mx-3">
-          <a class="nav-link" href="#">Journal</a>
+          <a class="nav-link" href="/ChildCare/pages/testimonials.php">Testimonials</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" href="#">Contact Us</a>
+          <a class="nav-link" href="/ChildCare/pages/contact.php">Contact Us</a>
         </li>
+        <?php
+        if (!isset($_SESSION['email'])) { //for public
+          echo "<li class='nav-item mx-3'>
+            <a class='nav-link' href='/ChildCare/pages/login.php'>Log In</a>
+          </li>";
+        } else {
+          if (($_SESSION['privilege'] == "super")) { //for admin
+            echo "<li class='nav-item mx-3'>
+              <a class='nav-link' href='/ChildCare/pages/editHome.php'>Edit Home</a>
+            </li>";
+          } else { //for user(parent)
+            echo "<li class='nav-item mx-3'>
+            <a class='nav-link' href='/ChildCare/pages/dailyLog.php'>Daily Log</a>
+          </li>";
+            echo "<li class='nav-item mx-3'>
+            <a class='nav-link' href='/ChildCare/pages/register.php'>Register</a>
+          </li>";
+          }
+          echo "<li class='nav-item mx-3'>
+            <a class='nav-link' href='/ChildCare/pages/profile.php'>Profile</a>
+          </li>";
+          echo "<li class='nav-item mx-3'>
+            <a class='nav-link' href='/ChildCare/scripts/logout.php'>Log Out</a>
+          </li>";
+        }
+        ?>
       </ul>
     </nav>
   </header>
