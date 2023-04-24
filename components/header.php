@@ -43,9 +43,12 @@ session_start();
             <a class='nav-link' href='/ChildCare/pages/login.php'>Log In</a>
           </li>";
         } else {
-          if (($_SESSION['privilege'] == "super")) { //for admin
+          if (((isset($_SESSION['privilege'])) && $_SESSION['privilege'] == "super")) { //for admin
             echo "<li class='nav-item mx-3'>
               <a class='nav-link' href='/ChildCare/pages/editHome.php'>Edit Home</a>
+            </li>";
+            echo "<li class='nav-item mx-3'>
+              <a class='nav-link' href='/ChildCare/pages/addLog.php'>Add Log</a>
             </li>";
           } else { //for user(parent)
             echo "<li class='nav-item mx-3'>

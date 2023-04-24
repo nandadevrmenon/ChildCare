@@ -42,7 +42,7 @@ function validatePhone($phone)
     $GLOBALS["errors"]["phone"] = "Field cannot be empty.";
   } else if (strlen($phone) > 10) {
     $GLOBALS['errors']["phone"] = "Phone number length should be less then 10 ";
-  } else if (!preg_match("/^(01[0-9]{7})|(0[1-9]{9})$/", $phone)) {
+  } else if (!preg_match("/^(01[0-9]{7})|(0[1-9][0-9]{9})$/", $phone)) {
     $GLOBALS['errors']["phone"] = "Not an Irish number";
   }
 }
