@@ -32,7 +32,7 @@ if (!$GLOBALS['hideForm']) {
   $lname = $userInfo['lname'];
   $phone = $userInfo['phone'];
   ?>
-  <div class="profile-container">
+  <div class="main-container">
     <div class="card w-35 p-5">
       <form action="/ChildCare/scripts/deleteAcc.php" method="POST" novalidate>
         <h1>Hi,

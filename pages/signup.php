@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $fname = cleanInput($_POST["fname"]); //clean all inputs to correct format
   $lname = cleanName($_POST["lname"]);
   $phone = cleanInput($_POST["phone"]);
-  $email = cleanInput($_POST["email"]);
+  $email = cleanEmail($_POST["email"]);
   $password = $_POST["password"];
   $confirmPassword = $_POST["confirmPassword"];
 
@@ -145,6 +145,16 @@ if (!$GLOBALS['hideForm']) {
             }
             ?>
           </div>
+          <?php
+          if (!isset($_SESSION['email'])) {
+            echo "<div class='row g-2 mb-3'>
+            <span><a href='/ChildCare/pages/login.php' class='text-secondary'>Already have an account? Log in
+                here.</a></span>
+          </div>";
+          }
+
+          ?>
+
           <div class="row g-2">
             <div class="col-auto">
               <button type="submit" class="btn btn-primary mb-3">Create Account</button>

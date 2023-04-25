@@ -81,10 +81,17 @@
           </p>
           <p>
             <img class="me-3" src="/ChildCare/images/icons/envelope-fill.svg" alt="email icon">
-            info@example.com
+            tiny.toddlers.dublin@gmail.com
           </p>
           <p> <img class="me-3" src="/ChildCare/images/icons/telephone-fill.svg" alt="phone icon"> + 01 234 567 88</p>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="blue-bottom-border w-100">
+    <div class="d-flex px-5 py-4 w-75 mx-auto">
+      <div class="ms-auto me-auto d-none d-lg-block blue-top-border">
+        <span>Copyright </span>
       </div>
     </div>
   </div>

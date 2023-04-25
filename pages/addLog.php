@@ -32,7 +32,7 @@ if (!$GLOBALS['hideForm']) {
   $lname = $userInfo['lname'];
   $phone = $userInfo['phone'];
   ?>
-  <div class="profile-container">
+  <div class="main-container">
     <div class="card w-55 p-5">
       <h1>Registered Children</h1>
       <div>

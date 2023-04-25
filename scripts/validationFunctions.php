@@ -12,6 +12,11 @@ function cleanName($name)
   return ucwords(trim(htmlentities(strip_tags($name)))); //do eveything that clean input does and also make first letters uppercase
 }
 
+function cleanEmail($email)
+{
+  return strtolower(cleanInput($email));
+}
+
 function validateFirstName($name)
 {
   if (empty($name)) { //if name field is empty show an error
@@ -33,6 +38,19 @@ function validateLastName($name)
     $GLOBALS['errors']["lname"] = "Name length should be less than 50.";
   } else if (!preg_match('/^[a-zA-Z]+ ?[a-zA-Z]*$/', $name)) { //if it does matcht he regex show an error
     $GLOBALS['errors']["lname"] = "Illegal Character Found.";
+  }
+}
+
+function validateFullName($name)
+{
+  if (empty($name)) { //if empty show an error
+    $GLOBALS["errors"]["name"] = "Field cannot be empty.";
+  } else if (count(explode(" ", $name)) > 3) { //if there are more than 2 words in the last name show an error(people with long names are out of luck.)
+    $GLOBALS["errors"]["name"] = "Cannot contain more than 2 space characters.";
+  } else if (strlen($name) > 80) { //if name is too long
+    $GLOBALS['errors']["name"] = "Name length should be less than 80.";
+  } else if (!preg_match('/^[a-zA-Z]+( ?[a-zA-Z]*)*$/', $name)) { //if it does matcht he regex show an error
+    $GLOBALS['errors']["name"] = "Illegal Character Found.";
   }
 }
 
@@ -61,6 +79,18 @@ function validatepasswords($pw, $confirmPw)
     $GLOBALS["errors"]["password"] = "Password cannot be empty.";
   } else if ($pw != $confirmPw) {
     $GLOBALS['errors']["password"] = "Passwords do not match";
+  }
+}
+
+
+function validateBigText($text)
+{
+  if (empty($text)) {
+    $GLOBALS["errors"]["details"] = "Feild Cannot be empty";
+  } else if (strlen($text) > 700) {
+    $GLOBALS["errors"]["details"] = "Must be shorter than 700 characters.";
+  } else if (!preg_match(`/^[A-Za-z.,/'";:!@€$%&*()+=}{<>-\s]*$/`, $text)) {
+    $GLOBALS["errors"]["details"] = "Illegal Character Found.Please write in plain english.";
   }
 }
 
