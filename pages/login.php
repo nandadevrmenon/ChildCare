@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (userAlreadyExists($email)) { //we check if that user already exists in the table and if not we
       $pwInDatabase = getUserPW($email);
       echo password_verify($password, $pwInDatabase);
-      if (password_verify($password, $pwInDatabase)) { //if a row is affected(successful insertion)
+      if (password_verify($password, $pwInDatabase)) { //if 
         $_SESSION['email'] = $email;
         if (userIsAdmin($email))
           $_SESSION['privilege'] = "super";
