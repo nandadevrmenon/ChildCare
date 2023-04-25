@@ -25,6 +25,7 @@ body{
 }
 
 
+
 /* All the header css goes here */
 
 
@@ -162,6 +163,36 @@ body{
 	position: relative;
     transition: all 200ms linear;
 }
+
+
+
+/* Contact Hero */
+
+#contact-hero{
+	background-color: #FBF3EF;
+	margin:0;
+	position: relative;
+	top:-20px;
+	color: #ce3e4a;
+}
+
+#contact-hero img{
+	filter: invert(44%) sepia(41%) saturate(4654%) hue-rotate(328deg) brightness(82%) contrast(98%);
+}
+
+/* #contact-hero .btn-primary{
+	background-color: #f1c9b4;
+	color:#ce3e4a;
+	border-color:#ebac8a ;
+}
+
+#contact-hero .btn-primary:hover {
+  color: #fff;
+  background-color: #e99061;
+  border-color: #ebac8a;
+} */
+
+
 
 
 /* All the content based css here */
