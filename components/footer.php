@@ -49,21 +49,39 @@
           <h6 class="text-uppercase fw-bold mb-4">
             Useful links
           </h6>
-          <p>
-            <a href="#!" class="text-reset">Testimonials</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Contact Us</a>
-          </p>
           <?php
-          if (isset($_SESSION['email'])) {
+          if (isset($_SESSION['email'])) { //if logged in
+            if (isset($_SESSION['privilege'])) { //if admin
+              echo "<p>
+                <a href='/ChildCare/pages/contact.php' class='text-reset'>Messages</a>
+              </p>";
+              echo "<p>
+                <a href='/ChildCare/pages/editTestimonials.php' class='text-reset'>Testimonials</a>
+              </p>";
+              echo "<p>
+                <a href='/ChildCare/pages/addLog.php' class='text-reset'>Daily Log</a>
+              </p>";
+            } else { //if parent
+              echo "<p>
+                <a href='/ChildCare/pages/addTestimonials.php' class='text-reset'>Testimonials</a>
+              </p>";
+              echo "<p>
+              <a href='/ChildCare/pages/contact.php' class='text-reset'>Contact Us</a>
+               </p>";
+              echo "<p>
+                <a href='/ChildCare/pages/dailyLog.php' class='text-reset'>Daily Log</a>
+              </p>";
+            }
             echo "<p>
-              <a href='/ChildCare/pages/dailyLog.php' class='text-reset'>Daily Log</a>
-            </p>";
+                <a href='/ChildCare/pages/profile.php' class='text-reset'>Profile</a>
+              </p>";
+          } else { //if public
             echo "<p>
-              <a href='/ChildCare/pages/profile.php' class='text-reset'>Profile</a>
+                <a href='/ChildCare/pages/viewTestimonials.php' class='text-reset'>Testimonials</a>
+              </p>";
+            echo "<p>
+              <a href='/ChildCare/pages/contact.php' class='text-reset'>Contact Us</a>
             </p>";
-          } else {
             echo "<p>
             <a href='/ChildCare/pages/login.php' class='text-reset'>Log In</a>
             </p>";

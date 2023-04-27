@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,11 +36,11 @@ session_start();
         <li class="nav-item mx-3">
           <a class="nav-link" href="/ChildCare/pages/testimonials.php">Testimonials</a>
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link" href="/ChildCare/pages/contact.php">Contact Us</a>
-        </li>
         <?php
         if (!isset($_SESSION['email'])) { //for public
+          echo "<li class='nav-item mx-3'>
+            <a class='nav-link' href='/ChildCare/pages/contact.php'>Contact Us</a>
+          </li>";
           echo "<li class='nav-item mx-3'>
             <a class='nav-link' href='/ChildCare/pages/login.php'>Log In</a>
           </li>";
@@ -50,14 +52,20 @@ session_start();
             echo "<li class='nav-item mx-3'>
               <a class='nav-link' href='/ChildCare/pages/addLog.php'>Add Log</a>
             </li>";
+            echo "<li class='nav-item mx-3'>
+              <a class='nav-link' href='/ChildCare/pages/messages.php'>Messages</a>
+            </li>";
           } else { //for user(parent)
             echo "<li class='nav-item mx-3'>
-            <a class='nav-link' href='/ChildCare/pages/dailyLog.php'>Daily Log</a>
-          </li>";
+              <a class='nav-link' href='/ChildCare/pages/dailyLog.php'>Daily Log</a>
+            </li>";
             echo "<li class='nav-item mx-3'>
-            <a class='nav-link' href='/ChildCare/pages/register.php'>Register</a>
-          </li>";
-          }
+              <a class='nav-link' href='/ChildCare/pages/register.php'>Register</a>
+            </li>";
+            echo "<li class='nav-item mx-3'>
+             <a class='nav-link' href='/ChildCare/pages/contact.php'>Contact Us</a>
+            </li>";
+          } //for logges in users in general
           echo "<li class='nav-item mx-3'>
             <a class='nav-link' href='/ChildCare/pages/profile.php'>Profile</a>
           </li>";

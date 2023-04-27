@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $statement->execute(); //we insert the user into the database
       if ($statement->affected_rows == 1) { //if a row is affected(successful insertion)
         $_SESSION['email'] = $email;
+        unset($_SESSION['privilege']);
         sendConfirmationMail($fname, $email);
         header("Location:profile.php?signup=successful");
       }
