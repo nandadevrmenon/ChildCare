@@ -1,6 +1,6 @@
 body{
   font-family: 'Poppins', sans-serif;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 24px;
 	font-weight: 400;
   background-color: #faf6f6;
@@ -179,7 +179,7 @@ body{
 }
 
 #contact-hero img{
-	filter: invert(44%) sepia(41%) saturate(4654%) hue-rotate(328deg) brightness(82%) contrast(98%);
+	filter: invert(33%) sepia(62%) saturate(1190%) hue-rotate(316deg) brightness(80%) contrast(103%);
 }
 
 

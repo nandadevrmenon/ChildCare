@@ -110,13 +110,14 @@
     <div class="d-flex px-5 py-1 w-75 mx-auto">
       <div class="ms-auto me-auto d-none d-lg-block blue-top-border">
         <span> &copy;
-          <?php echo date("Y"); ?> Visit Dublin
+          <?php echo date("Y"); ?> Tiny Toddlers
         </span>
       </div>
     </div>
   </div>
 </footer>
 <script src="/ChildCare/index.js"></script>
+<script src="/ChildCare/bootstrap.js"></script>
 </body>
 
 </html>

@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $currentDate = date('Y-m-d'); //to get current date string
 
   if (count($errors) == 0 && !isset($_COOKIE['enquirySent'])) { //if there are no errors  and we havent sent a query in the past 2 minutes we submit the query
-    $sqlString = "INSERT INTO `enquiry` ( `date`,`name`, `email`, `phone`, `title`, `message`) VALUES (?, ?, ?, ?, ?, ?)";
+    $sqlString = "INSERT INTO `enquiry` ( `date`,`name`, `email`, `phone`, `subject`, `details`) VALUES (?, ?, ?, ?, ?, ?)";
     $statement = $GLOBALS['db']->prepare($sqlString); //prepare the statement
     $statement->bind_param('ssssss', $currentDate, $name, $email, $phone, $subject, $details); //prevents sql injections
     $statement->execute(); //we insert the query into the database
