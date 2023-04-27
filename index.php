@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/header.php");
+require_once(dirname(__FILE__) . "/components/header.php");
 ?>
 
 
@@ -17,5 +17,5 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/header.php");
 
 
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/footer.php");
+require_once(dirname(__FILE__) . "/components/footer.php");
 ?>

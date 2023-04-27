@@ -106,16 +106,16 @@ session_start();
               Useful links
             </h6>
             <p>
-              <a href="#!" class="text-reset">Testimonials</a>
+              <a href="/ChildCare/pages/viewTestimonials.php" class="text-reset">Testimonials</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Contact Us</a>
+              <a href="/ChildCare/pages/contact.php" class="text-reset">Contact Us</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Log In</a>
+              <a href="/ChildCare/pages/login.php" class="text-reset">Log In</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Services</a>
+              <a href="/ChildCare/pages/services.php" class="text-reset">Services</a>
             </p>
           </div>
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">

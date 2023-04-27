@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/validationFunctions.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/fetchFunctions.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/database.php"; //require the db 
+require_once dirname(__FILE__) . "/../scripts/validationFunctions.php";
+require_once dirname(__FILE__) . "/../scripts/fetchFunctions.php";
+require_once dirname(__FILE__) . "/../database.php"; //require the db 
 
 $GLOBALS['errors'] = array(); //errors in the contact form
 
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   validateBigText($details);
   validatePhone($phone);
 
-  if (count($errors) == 0) { //if there are no errors we submit the query
+  if (count($errors) == 0 && !isset($_COOKIE['enquirySent'])) { //if there are no errors  and we havent sent a query in the past 2 minutes we submit the query
     $sqlString = "INSERT INTO `enquiry` ( `name`, `email`, `phone`, `title`, `message`) VALUES (?, ?, ?, ?, ?)";
     $statement = $GLOBALS['db']->prepare($sqlString); //prepare the statement
     $statement->bind_param('sssss', $name, $email, $phone, $subject, $details); //prevents sql injections
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/header.php"; //display the header. We ahve to display it here becauase we are setting a cookie so we cant send any html before that
+require_once dirname(__FILE__) . "/../components/header.php"; //display the header. We ahve to display it here becauase we are setting a cookie so we cant send any html before that
 ?>
 
 <div class="px-4 py-5 text-center w-100" id="contact-hero">
@@ -245,5 +245,5 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/header.php"; //d
 </div>
 
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/footer.php");
+require_once(dirname(__FILE__) . "/../components/footer.php");
 ?>

@@ -1,8 +1,8 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/header.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/validationFunctions.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/fetchFunctions.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/database.php"; //require the db 
+require_once dirname(__FILE__) . "/../components/header.php";
+require_once dirname(__FILE__) . "/../scripts/validationFunctions.php";
+require_once dirname(__FILE__) . "/../scripts/fetchFunctions.php";
+require_once dirname(__FILE__) . "/../database.php"; //require the db 
 
 
 $GLOBALS['errors'] = array();
@@ -85,5 +85,5 @@ if (!$GLOBALS['hideForm']) {
   </div>
   <?php
 }
-require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/footer.php");
+require_once(dirname(__FILE__) . "/../components/footer.php");
 ?>
