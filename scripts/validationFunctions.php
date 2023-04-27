@@ -1,4 +1,5 @@
 <?php
+//EVERY input is run through some kind of cleaning and then some kind of validation using the functions in this file
 function cleanInput($input)
 { //trims removes tags and makes first letter uppercase
   ucwords(trim(htmlentities(htmlspecialchars(strip_tags($input))))); //removes html entities trims ad strips tags from input
@@ -99,11 +100,14 @@ function validateSubject($subject)
 }
 function validateBigText($text)
 {
+  $regex = <<<ID
+  /\A[A-Za-z0-9.,\s;:#!@€\$%&\(*)=\+}{<>-s]*\z$/m
+  ID;
   if (empty($text)) {
     $GLOBALS["errors"]["details"] = "Feild Cannot be empty";
   } else if (strlen($text) > 700) {
     $GLOBALS["errors"]["details"] = "Must be shorter than 700 characters.";
-  } else if (!preg_match('/\A[A-Za-z0-9\.,\s\';:!@€\$%&\(*)=\+}{<>-s]*\z$/m', $text)) {
+  } else if (!preg_match($regex, $text)) {
     $GLOBALS["errors"]["details"] = "Illegal Character Found.Please write in plain english.";
   }
 }
