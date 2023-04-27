@@ -1,7 +1,7 @@
 <?php
 function cleanInput($input)
 { //trims removes tags and makes first letter uppercase
-  ucwords(trim(htmlentities(strip_tags($input)))); //removes html entities trims ad strips tags from input
+  ucwords(trim(htmlentities(htmlspecialchars(strip_tags($input))))); //removes html entities trims ad strips tags from input
   $input = preg_replace('/\s+/', '', $input); //removes whitespace
   $input = preg_replace('/-/', '', $input); //removes hyphens
   return $input;
@@ -10,6 +10,11 @@ function cleanInput($input)
 function cleanName($name)
 {
   return ucwords(trim(htmlentities(strip_tags($name)))); //do eveything that clean input does and also make first letters uppercase
+}
+
+function cleanText($text)
+{
+  return trim(htmlentities(strip_tags($text)));
 }
 
 function cleanEmail($email)
@@ -82,14 +87,23 @@ function validatepasswords($pw, $confirmPw)
   }
 }
 
-
+function validateSubject($subject)
+{
+  if (empty($subject)) {
+    $GLOBALS["errors"]["subject"] = "Feild Cannot be empty";
+  } else if (strlen($subject) > 200) {
+    $GLOBALS["errors"]["subject"] = "Must be shorter than 200 characters.";
+  } else if (!preg_match("/^[A-Za-z.,' ;:!@€$%&*()+=}{<>-s]*$/", $subject)) {
+    $GLOBALS["errors"]["subject"] = "Illegal Character Found.Please write in plain english.";
+  }
+}
 function validateBigText($text)
 {
   if (empty($text)) {
     $GLOBALS["errors"]["details"] = "Feild Cannot be empty";
   } else if (strlen($text) > 700) {
     $GLOBALS["errors"]["details"] = "Must be shorter than 700 characters.";
-  } else if (!preg_match(`/^[A-Za-z.,/'";:!@€$%&*()+=}{<>-\s]*$/`, $text)) {
+  } else if (!preg_match('/\A[A-Za-z0-9\.,\s\';:!@€\$%&\(*)=\+}{<>-s]*\z$/m', $text)) {
     $GLOBALS["errors"]["details"] = "Illegal Character Found.Please write in plain english.";
   }
 }

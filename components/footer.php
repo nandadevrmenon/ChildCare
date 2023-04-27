@@ -2,7 +2,7 @@
 
 <footer class="site-footer">
   <div class="blue-bottom-border w-100">
-    <div class="d-flex px-5 py-4 w-75 mx-auto">
+    <div class="d-flex px-5 py-3 w-75 mx-auto">
       <div class="ms-5 me-auto d-none d-lg-block">
         <span>Connect with us on these social networks:</span>
       </div>
@@ -14,7 +14,7 @@
     </div>
   </div>
   <div>
-    <div class="container text-center text-md-start mt-5">
+    <div class="container text-center text-md-start mt-4">
       <div class="row mt-3">
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <h6 class="text-uppercase fw-bold mb-4 footer-brand">
@@ -89,9 +89,11 @@
     </div>
   </div>
   <div class="blue-bottom-border w-100">
-    <div class="d-flex px-5 py-4 w-75 mx-auto">
+    <div class="d-flex px-5 py-1 w-75 mx-auto">
       <div class="ms-auto me-auto d-none d-lg-block blue-top-border">
-        <span>Copyright </span>
+        <span> &copy;
+          <?php echo date("Y"); ?> Visit Dublin
+        </span>
       </div>
     </div>
   </div>
