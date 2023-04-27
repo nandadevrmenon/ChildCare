@@ -1,13 +1,13 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/header.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/validationFunctions.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/fetchFunctions.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/database.php"; //require the db 
+require_once dirname(__FILE__) . "/../components/header.php";
+require_once dirname(__FILE__) . "/../scripts/validationFunctions.php";
+require_once dirname(__FILE__) . "/../scripts/fetchFunctions.php";
+require_once dirname(__FILE__) . "/../database.php"; //require the db 
 
 $GLOBALS['errors'] = array();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $email = cleanInput($_POST["email"]); //clean all inputs to correct format
+  $email = cleanEmail($_POST["email"]); //clean all inputs to correct format
   $password = $_POST["password"];
 
   validateEmail($email);
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="row g-2">
           <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Create Account</button>
+            <button type="submit" class="btn btn-primary mb-3">Log in</button>
           </div>
         </div>
       </form>
@@ -81,5 +81,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 </div>
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/footer.php");
+require_once(dirname(__FILE__) . "/../components/footer.php");
 ?>

@@ -1,7 +1,8 @@
 <?php
+//EVERY input is run through some kind of cleaning and then some kind of validation using the functions in this file
 function cleanInput($input)
 { //trims removes tags and makes first letter uppercase
-  ucwords(trim(htmlentities(strip_tags($input)))); //removes html entities trims ad strips tags from input
+  ucwords(trim(htmlentities(htmlspecialchars(strip_tags($input))))); //removes html entities trims ad strips tags from input
   $input = preg_replace('/\s+/', '', $input); //removes whitespace
   $input = preg_replace('/-/', '', $input); //removes hyphens
   return $input;
@@ -10,6 +11,16 @@ function cleanInput($input)
 function cleanName($name)
 {
   return ucwords(trim(htmlentities(strip_tags($name)))); //do eveything that clean input does and also make first letters uppercase
+}
+
+function cleanText($text)
+{
+  return trim(htmlentities(strip_tags($text)));
+}
+
+function cleanEmail($email)
+{
+  return strtolower(cleanInput($email));
 }
 
 function validateFirstName($name)
@@ -33,6 +44,19 @@ function validateLastName($name)
     $GLOBALS['errors']["lname"] = "Name length should be less than 50.";
   } else if (!preg_match('/^[a-zA-Z]+ ?[a-zA-Z]*$/', $name)) { //if it does matcht he regex show an error
     $GLOBALS['errors']["lname"] = "Illegal Character Found.";
+  }
+}
+
+function validateFullName($name)
+{
+  if (empty($name)) { //if empty show an error
+    $GLOBALS["errors"]["name"] = "Field cannot be empty.";
+  } else if (count(explode(" ", $name)) > 3) { //if there are more than 2 words in the last name show an error(people with long names are out of luck.)
+    $GLOBALS["errors"]["name"] = "Cannot contain more than 2 space characters.";
+  } else if (strlen($name) > 80) { //if name is too long
+    $GLOBALS['errors']["name"] = "Name length should be less than 80.";
+  } else if (!preg_match('/^[a-zA-Z]+( ?[a-zA-Z]*)*$/', $name)) { //if it does matcht he regex show an error
+    $GLOBALS['errors']["name"] = "Illegal Character Found.";
   }
 }
 
@@ -61,6 +85,30 @@ function validatepasswords($pw, $confirmPw)
     $GLOBALS["errors"]["password"] = "Password cannot be empty.";
   } else if ($pw != $confirmPw) {
     $GLOBALS['errors']["password"] = "Passwords do not match";
+  }
+}
+
+function validateSubject($subject)
+{
+  if (empty($subject)) {
+    $GLOBALS["errors"]["subject"] = "Feild Cannot be empty";
+  } else if (strlen($subject) > 200) {
+    $GLOBALS["errors"]["subject"] = "Must be shorter than 200 characters.";
+  } else if (!preg_match("/^[A-Za-z.,' ;:!@€$%&*()+=}{<>-s]*$/", $subject)) {
+    $GLOBALS["errors"]["subject"] = "Illegal Character Found.Please write in plain english.";
+  }
+}
+function validateBigText($text)
+{
+  $regex = <<<ID
+  /\A[A-Za-z0-9.,\s;:#!@€\$%&\(*)=\+}{<>-s]*\z$/m
+  ID;
+  if (empty($text)) {
+    $GLOBALS["errors"]["details"] = "Feild Cannot be empty";
+  } else if (strlen($text) > 700) {
+    $GLOBALS["errors"]["details"] = "Must be shorter than 700 characters.";
+  } else if (!preg_match($regex, $text)) {
+    $GLOBALS["errors"]["details"] = "Illegal Character Found.Please write in plain english.";
   }
 }
 

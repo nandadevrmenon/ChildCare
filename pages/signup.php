@@ -1,9 +1,9 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/header.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/validationFunctions.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/fetchFunctions.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/scripts/mailer.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/ChildCare/database.php"; //require the db 
+require_once dirname(__FILE__) . "/../components/header.php";
+require_once dirname(__FILE__) . "/../scripts/validationFunctions.php";
+require_once dirname(__FILE__) . "/../scripts/fetchFunctions.php";
+require_once dirname(__FILE__) . "/../scripts/mailer.php";
+require_once dirname(__FILE__) . "/../database.php"; //require the db 
 
 $GLOBALS['errors'] = array();
 $GLOBALS['hideForm'] = false; //variables that holds if the form is to be hidden after registration or not
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $fname = cleanInput($_POST["fname"]); //clean all inputs to correct format
   $lname = cleanName($_POST["lname"]);
   $phone = cleanInput($_POST["phone"]);
-  $email = cleanInput($_POST["email"]);
+  $email = cleanEmail($_POST["email"]);
   $password = $_POST["password"];
   $confirmPassword = $_POST["confirmPassword"];
 
@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $statement->execute(); //we insert the user into the database
       if ($statement->affected_rows == 1) { //if a row is affected(successful insertion)
         $_SESSION['email'] = $email;
+        unset($_SESSION['privilege']);
         sendConfirmationMail($fname, $email);
         header("Location:profile.php?signup=successful");
       }
@@ -145,6 +146,16 @@ if (!$GLOBALS['hideForm']) {
             }
             ?>
           </div>
+          <?php
+          if (!isset($_SESSION['email'])) {
+            echo "<div class='row g-2 mb-3'>
+            <span><a href='/ChildCare/pages/login.php' class='text-secondary'>Already have an account? Log in
+                here.</a></span>
+          </div>";
+          }
+
+          ?>
+
           <div class="row g-2">
             <div class="col-auto">
               <button type="submit" class="btn btn-primary mb-3">Create Account</button>
@@ -156,5 +167,5 @@ if (!$GLOBALS['hideForm']) {
   </div>
   <?php
 }
-require_once($_SERVER['DOCUMENT_ROOT'] . "/ChildCare/components/footer.php");
+require_once(dirname(__FILE__) . "/../components/footer.php");
 ?>

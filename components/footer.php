@@ -2,7 +2,7 @@
 
 <footer class="site-footer">
   <div class="blue-bottom-border w-100">
-    <div class="d-flex px-5 py-4 w-75 mx-auto">
+    <div class="d-flex px-5 py-3 w-75 mx-auto">
       <div class="ms-5 me-auto d-none d-lg-block">
         <span>Connect with us on these social networks:</span>
       </div>
@@ -14,7 +14,7 @@
     </div>
   </div>
   <div>
-    <div class="container text-center text-md-start mt-5">
+    <div class="container text-center text-md-start mt-4">
       <div class="row mt-3">
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <h6 class="text-uppercase fw-bold mb-4 footer-brand">
@@ -49,21 +49,39 @@
           <h6 class="text-uppercase fw-bold mb-4">
             Useful links
           </h6>
-          <p>
-            <a href="#!" class="text-reset">Testimonials</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Contact Us</a>
-          </p>
           <?php
-          if (isset($_SESSION['email'])) {
+          if (isset($_SESSION['email'])) { //if logged in
+            if (isset($_SESSION['privilege'])) { //if admin
+              echo "<p>
+                <a href='/ChildCare/pages/contact.php' class='text-reset'>Messages</a>
+              </p>";
+              echo "<p>
+                <a href='/ChildCare/pages/editTestimonials.php' class='text-reset'>Testimonials</a>
+              </p>";
+              echo "<p>
+                <a href='/ChildCare/pages/addLog.php' class='text-reset'>Daily Log</a>
+              </p>";
+            } else { //if parent
+              echo "<p>
+                <a href='/ChildCare/pages/addTestimonials.php' class='text-reset'>Testimonials</a>
+              </p>";
+              echo "<p>
+              <a href='/ChildCare/pages/contact.php' class='text-reset'>Contact Us</a>
+               </p>";
+              echo "<p>
+                <a href='/ChildCare/pages/dailyLog.php' class='text-reset'>Daily Log</a>
+              </p>";
+            }
             echo "<p>
-              <a href='/ChildCare/pages/dailyLog.php' class='text-reset'>Daily Log</a>
-            </p>";
+                <a href='/ChildCare/pages/profile.php' class='text-reset'>Profile</a>
+              </p>";
+          } else { //if public
             echo "<p>
-              <a href='/ChildCare/pages/profile.php' class='text-reset'>Profile</a>
+                <a href='/ChildCare/pages/viewTestimonials.php' class='text-reset'>Testimonials</a>
+              </p>";
+            echo "<p>
+              <a href='/ChildCare/pages/contact.php' class='text-reset'>Contact Us</a>
             </p>";
-          } else {
             echo "<p>
             <a href='/ChildCare/pages/login.php' class='text-reset'>Log In</a>
             </p>";
@@ -81,15 +99,25 @@
           </p>
           <p>
             <img class="me-3" src="/ChildCare/images/icons/envelope-fill.svg" alt="email icon">
-            info@example.com
+            tiny.toddlers.dublin@gmail.com
           </p>
           <p> <img class="me-3" src="/ChildCare/images/icons/telephone-fill.svg" alt="phone icon"> + 01 234 567 88</p>
         </div>
       </div>
     </div>
   </div>
+  <div class="blue-bottom-border w-100">
+    <div class="d-flex px-5 py-1 w-75 mx-auto">
+      <div class="ms-auto me-auto d-none d-lg-block blue-top-border">
+        <span> &copy;
+          <?php echo date("Y"); ?> Tiny Toddlers
+        </span>
+      </div>
+    </div>
+  </div>
 </footer>
 <script src="/ChildCare/index.js"></script>
+<script src="/ChildCare/bootstrap.js"></script>
 </body>
 
 </html>
