@@ -183,6 +183,33 @@ body{
 }
 
 
+#registration-hero{
+	background-color: #FBF3EF;
+	margin:0;
+	position: relative;
+	top:-30px;
+	color: #ce3e4a;
+	min-height: 60vh;
+	max-width: 100vw;
+}
+
+#registration-hero img{
+	border-radius: 5px;
+	box-shadow: 8px 7px 16px 0px rgba(0,0,0,0.17);
+-webkit-box-shadow: 8px 7px 16px 0px rgba(0,0,0,0.17);
+-moz-box-shadow: 8px 7px 16px 0px rgba(0,0,0,0.17);
+}
+
+
+#registration-options .card{
+	max-width: 28%;
+	margin:0 auto;
+}
+
+.registration-select{
+	font-size: 17px;
+	font-weight:400;
+}
 
 
 

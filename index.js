@@ -3,7 +3,7 @@
 		var header = document.querySelector(".navbar-start"); //get the navbar div
 
     window.onscroll = function(event) { //whenever we scroll
-      if (window.scrollY >= 10) {   //if the scroll position is greater than 10
+      if (window.scrollY >= 20) {   //if the scroll position is greater than 10
         header.classList.remove("navbar-start");
         header.classList.add("scrolled");   //add this class to make navbar slimmer
 
