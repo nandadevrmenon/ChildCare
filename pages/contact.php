@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $details = cleanText($_POST['details']);
   $subject = cleanText($_POST["subject"]);
 
-  validateFullName($name);
+  validateFullName($name); //validate every input 
   validateEmail($email);
   validateSubject($subject);
   validateBigText($details);
@@ -36,14 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $statement->bind_param('ssssss', $currentDate, $name, $email, $phone, $subject, $details); //prevents sql injections
     $statement->execute(); //we insert the query into the database
     if ($statement->affected_rows == 1) { //if a row is affected(successful insertion)
-      setcookie('enquirySent', 'true', time() + 120, '/', '', 0); //we set cookie that an enquiryHas been sent and use that cookie to disable the form for a few minutes
+      setcookie('enquirySent', 'true', time() + 120, '/', '', 0); //we set cookie that an enquiry Has been sent and use that cookie to disable the form for a few minutes
       $_COOKIE['enquirySent'] = true;
     }
   }
 }
 
 
-require_once dirname(__FILE__) . "/../components/header.php"; //display the header. We ahve to display it here becauase we are setting a cookie so we cant send any html before that
+require_once dirname(__FILE__) . "/../components/header.php"; //display the header. We have to display it here becauase we are setting a cookie so we cant send any html before that
 ?>
 
 <div class="px-4 py-5 text-center w-100" id="contact-hero">
@@ -64,7 +64,7 @@ require_once dirname(__FILE__) . "/../components/header.php"; //display the head
 </div>
 
 <div class="main-container my-5" id="contact-form">
-  <?php require_once dirname(__FILE__) . "/../components/contact-card.php" //renders the contact info card with map and details?>
+  <?php require_once dirname(__FILE__) . "/../components/contactCard.php" //renders the contact info card with map and details?>
   <div class="card w-55 p-5">
     <form action="/ChildCare/pages/contact.php" method="POST" novalidate id="contact">
       <h2>Get in touch
@@ -74,8 +74,8 @@ require_once dirname(__FILE__) . "/../components/header.php"; //display the head
           <label for="name" class="form-label"> Name</label>
           <input class="form-control form-control-sm" type="text" name="name" id="name" <?php
           if (isset($name))
-            echo "value='$name'";
-          if (isset($_COOKIE['enquirySent'])) {
+            echo "value='$name'"; //makes the form stickt and is done for all inputs
+          if (isset($_COOKIE['enquirySent'])) { //we disbale all inputs if form was already submitted less than 2 minutes
             echo " disabled";
           }
           ?>>
@@ -170,7 +170,7 @@ require_once dirname(__FILE__) . "/../components/header.php"; //display the head
       </div>
       <?php
       if (isset($_COOKIE['enquirySent'])) {
-        echo "<span class='text-danger'>Sorry but you can only send a query once every 2 minutes.Please Try again Later</span>";
+        echo "<span class='text-danger'>Sorry but you can only send a query once every 2 minutes. Please Try again Later</span>";
       }
       ?>
     </form>

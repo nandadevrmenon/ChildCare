@@ -53,13 +53,13 @@
           if (isset($_SESSION['email'])) { //if logged in
             if (isset($_SESSION['privilege'])) { //if admin
               echo "<p>
-                <a href='/ChildCare/pages/contact.php' class='text-reset'>Messages</a>
+                <a href='/ChildCare/pages/messages.php' class='text-reset'>Show Messages</a>
               </p>";
               echo "<p>
-                <a href='/ChildCare/pages/editTestimonials.php' class='text-reset'>Testimonials</a>
+                <a href='/ChildCare/pages/editTestimonials.php' class='text-reset'>Review Testimonials</a>
               </p>";
               echo "<p>
-                <a href='/ChildCare/pages/addLog.php' class='text-reset'>Daily Log</a>
+                <a href='/ChildCare/pages/addLog.php' class='text-reset'>Edit Daily Log</a>
               </p>";
             } else { //if parent
               echo "<p>
@@ -83,7 +83,7 @@
               <a href='/ChildCare/pages/contact.php' class='text-reset'>Contact Us</a>
             </p>";
             echo "<p>
-            <a href='/ChildCare/pages/login.php' class='text-reset'>Log In</a>
+            <a href='/ChildCare/pages/registration.php' class='text-reset'>Registration</a>
             </p>";
             echo "<p>
             <a href='/ChildCare/pages/services.php' class='text-reset'>Services</a>

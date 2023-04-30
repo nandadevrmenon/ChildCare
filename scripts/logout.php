@@ -28,14 +28,17 @@ session_start();
     </div>
     <nav class="nav-list-container" id="navbarLinks">
       <ul class="nav-list">
-        <li class="nav-item mx-3">
-          <a class="nav-link" href="/ChildCare/pages/services.php">Services</a>
+        <li class='nav-item mx-3'>
+          <a class='nav-link' href='/ChildCare/pages/services.php'>Services</a>
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link" href="/ChildCare/pages/testimonials.php">Testimonials</a>
+        <li class='nav-item mx-3'>
+          <a class='nav-link' href='/ChildCare/pages/registration.php'>Register</a>
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link" href="/ChildCare/pages/contact.php">Contact Us</a>
+        <li class='nav-item mx-3'>
+          <a class='nav-link' href='/ChildCare/pages/contact.php'>Contact Us</a>
+        </li>
+        <li class='nav-item mx-3'>
+          <a class='nav-link' href='/ChildCare/pages/testimonials.php'>Testimonials</a>
         </li>
         <li class='nav-item mx-3'>
           <a class='nav-link' href='/ChildCare/pages/login.php'>Log In</a>
@@ -48,6 +51,7 @@ session_start();
     <?php
     unset($_SESSION['email']);
     unset($_SESSION['privilege']);
+    unset($_SESSION['id']);
 
     echo "<div class='alert alert-success w-75' role='alert'>
       You have logged out sucessfully!
@@ -106,13 +110,13 @@ session_start();
               Useful links
             </h6>
             <p>
-              <a href="/ChildCare/pages/viewTestimonials.php" class="text-reset">Testimonials</a>
+              <a href="/ChildCare/pages/Testimonials.php" class="text-reset">Testimonials</a>
             </p>
             <p>
               <a href="/ChildCare/pages/contact.php" class="text-reset">Contact Us</a>
             </p>
             <p>
-              <a href="/ChildCare/pages/login.php" class="text-reset">Log In</a>
+              <a href='/ChildCare/pages/registration.php' class='text-reset'>Registration</a>
             </p>
             <p>
               <a href="/ChildCare/pages/services.php" class="text-reset">Services</a>

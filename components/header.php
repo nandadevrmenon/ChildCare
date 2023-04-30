@@ -30,16 +30,19 @@ if (session_status() === PHP_SESSION_NONE) {
     </div>
     <nav class="nav-list-container" id="navbarLinks">
       <ul class="nav-list">
-        <li class="nav-item mx-3">
-          <a class="nav-link" href="/ChildCare/pages/services.php">Services</a>
-        </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link" href="/ChildCare/pages/testimonials.php">Testimonials</a>
-        </li>
         <?php
         if (!isset($_SESSION['email'])) { //for public
           echo "<li class='nav-item mx-3'>
+            <a class='nav-link' href='/ChildCare/pages/services.php'>Services</a>
+          </li>";
+          echo "<li class='nav-item mx-3'>
+          <a class='nav-link' href='/ChildCare/pages/registration.php'>Register</a>
+            </li>";
+          echo "<li class='nav-item mx-3'>
             <a class='nav-link' href='/ChildCare/pages/contact.php'>Contact Us</a>
+          </li>";
+          echo " <li class='nav-item mx-3'>
+            <a class='nav-link' href='/ChildCare/pages/testimonials.php'>Testimonials</a>
           </li>";
           echo "<li class='nav-item mx-3'>
             <a class='nav-link' href='/ChildCare/pages/login.php'>Log In</a>
@@ -55,17 +58,29 @@ if (session_status() === PHP_SESSION_NONE) {
             echo "<li class='nav-item mx-3'>
               <a class='nav-link' href='/ChildCare/pages/messages.php'>Messages</a>
             </li>";
+            echo "<li class='nav-item mx-3'>
+              <a class='nav-link' href='/ChildCare/pages/editFees.php'>Edit Fees</a>
+            </li>";
+            echo "<li class='nav-item mx-3'>
+              <a class='nav-link' href='/ChildCare/pages/reviewTestimonials.php'>Testimonials</a>
+            </li>";
           } else { //for user(parent)
+            echo "<li class='nav-item mx-3'>
+              <a class='nav-link' href='/ChildCare/pages/services.php'>Services</a>
+            </li>";
+            echo "<li class='nav-item mx-3'>
+              <a class='nav-link' href='/ChildCare/pages/registration.php'>Register</a>
+            </li>";
             echo "<li class='nav-item mx-3'>
               <a class='nav-link' href='/ChildCare/pages/dailyLog.php'>Daily Log</a>
             </li>";
-            echo "<li class='nav-item mx-3'>
-              <a class='nav-link' href='/ChildCare/pages/register.php'>Register</a>
+            echo " <li class='nav-item mx-3'>
+              <a class='nav-link' href='/ChildCare/pages/testimonials.php'>Testimonials</a>
             </li>";
             echo "<li class='nav-item mx-3'>
              <a class='nav-link' href='/ChildCare/pages/contact.php'>Contact Us</a>
             </li>";
-          } //for logges in users in general
+          } //for logged in users in general
           echo "<li class='nav-item mx-3'>
             <a class='nav-link' href='/ChildCare/pages/profile.php'>Profile</a>
           </li>";

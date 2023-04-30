@@ -36,14 +36,16 @@ function validateFirstName($name)
 
 function validateLastName($name)
 {
+  trim($name);
+  echo $name;
   if (empty($name)) { //if empty show an error
     $GLOBALS["errors"]["lname"] = "Field cannot be empty.";
-  } else if (count(explode(" ", $name)) > 2) { //if there are more than 2 words in the last name show an error(people with long names are out of luck.)
-    $GLOBALS["errors"]["lname"] = "Cannot contain more than 1 space char.";
+  } else if (count(explode(" ", $name)) > 3) { //if there are more than 2 words in the last name show an error(people with long names are out of luck.)
+    $GLOBALS["errors"]["lname"] = "Cannot contain more than 2 space char.";
   } else if (strlen($name) > 40) { //if name is too long
     $GLOBALS['errors']["lname"] = "Name length should be less than 50.";
-  } else if (!preg_match('/^[a-zA-Z]+ ?[a-zA-Z]*$/', $name)) { //if it does matcht he regex show an error
-    $GLOBALS['errors']["lname"] = "Illegal Character Found.";
+  } else if (!preg_match("/^[a-zA-Z]+( ?[a-zA-Z]+)*$/", $name)) { //if it does matcht he regex show an error
+    $GLOBALS['errors']["lname"] = "Illegal Characacter Found. Only english alphabets and spaces allowed.";
   }
 }
 
@@ -51,11 +53,11 @@ function validateFullName($name)
 {
   if (empty($name)) { //if empty show an error
     $GLOBALS["errors"]["name"] = "Field cannot be empty.";
-  } else if (count(explode(" ", $name)) > 3) { //if there are more than 2 words in the last name show an error(people with long names are out of luck.)
+  } else if (count(explode(" ", $name)) > 3) { //if there are more than 3 words in the  name show an error(people with long names are out of luck.)
     $GLOBALS["errors"]["name"] = "Cannot contain more than 2 space characters.";
   } else if (strlen($name) > 80) { //if name is too long
     $GLOBALS['errors']["name"] = "Name length should be less than 80.";
-  } else if (!preg_match('/^[a-zA-Z]+( ?[a-zA-Z]*)*$/', $name)) { //if it does matcht he regex show an error
+  } else if (!preg_match('/^[a-zA-Z]+( ?[a-zA-Z]*)*$/', $name)) { //if it does match the regex show an error
     $GLOBALS['errors']["name"] = "Illegal Character Found.";
   }
 }
@@ -64,9 +66,11 @@ function validatePhone($phone)
 {
   if (empty($phone)) {
     $GLOBALS["errors"]["phone"] = "Field cannot be empty.";
-  } else if (strlen($phone) > 10) {
+  } else if (!is_numeric($phone)) {
+    $GLOBALS["errors"]["phone"] = "Only numbers allowed";
+  } else if (strlen($phone) > 10) { //if too long
     $GLOBALS['errors']["phone"] = "Phone number length should be less then 10 ";
-  } else if (!preg_match("/^(01[0-9]{7})|(0[1-9][0-9]{8})$/", $phone)) {
+  } else if (!preg_match("/^(01[0-9]{7})|(0[1-9][0-9]{8})$/", $phone)) { //if doesnt match irish phone number regex
     $GLOBALS['errors']["phone"] = "Not an Irish number";
   }
 }
@@ -109,6 +113,26 @@ function validateBigText($text)
     $GLOBALS["errors"]["details"] = "Must be shorter than 700 characters.";
   } else if (!preg_match($regex, $text)) {
     $GLOBALS["errors"]["details"] = "Illegal Character Found.Please write in plain english.";
+  }
+}
+
+
+function validateAge($age)
+{
+  $ageLookup = array("Baby", "Wobbler", "Toddler", "PreSchooler");
+  if (empty($age)) {
+    $GLOBALS["errors"]["age"] = "Please select an age category.";
+  } else if (!in_array($age, $ageLookup)) {
+    $GLOBALS["errors"]["age"] = "Illegal value for plan.Don't mess with html.";
+  }
+}
+
+function validatePlan($plan)
+{
+  if (empty($plan)) {
+    $GLOBALS["errors"]["plan"] = "Please select an plan.";
+  } else if ($plan > 6 || $plan < 1) {
+    $GLOBALS["errors"]["plan"] = "Illegal value for plan.Don't mess with html.";
   }
 }
 
