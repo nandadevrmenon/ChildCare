@@ -13,7 +13,7 @@ function userAlreadyExists($email)
 
 function getUserInfo($email)
 {
-  $sqlString = "SELECT `fname`,`lname`,`phone` FROM `user` WHERE `email` = ?";
+  $sqlString = "SELECT `id`,`fname`,`lname`,`phone` FROM `user` WHERE `email` = ?";
   $statement = $GLOBALS['db']->prepare($sqlString); //preapre the above statement
   $statement->bind_param('s', $email); //bind the email variable
   $statement->execute();
@@ -45,5 +45,33 @@ function userIsAdmin($email)
   $result = $statement->get_result();
   $result = $result->fetch_assoc();
   return $result['privilege'] == "admin"; //if we get a result it means that such a car exists so we should prevent the addition of the new car so as to prevent duplicate entries
+}
+
+
+function childAlreadyExists($fname, $lname)
+{
+  $sqlString = "SELECT `fname`,`lname`,`user-id` FROM `child` WHERE `fname` = ? AND `lname`=? AND `user-id`=? ;";
+  $statement = $GLOBALS['db']->prepare($sqlString); //we prepare the statement
+  $statement->bind_param('sss', $fname, $lname, $_SESSION['userID']); //we bind the variables into the statemaent
+  $statement->execute();
+  $result = $statement->get_result();
+  $result = $result->fetch_assoc();
+  return isset($result); //if we get a result it means that such a user exists so we should prevent the addition of the new car so as to prevent duplicate entries
+}
+
+
+function getServiceInfo()
+{
+  $serviceInfo = array("names" => array("One Half Day", "One Full Day", "Three Half Days", "Three Full Days", "Five Half Days", "Five Full Days"), "fees" => array());
+
+  $sqlString = "SELECT `fee` FROM `service`;";
+  $statement = $GLOBALS['db']->prepare($sqlString); //prepare the above statement
+  $statement->execute();
+  $result = $statement->get_result();
+  while ($row = $result->fetch_assoc()) {
+    array_push($serviceInfo['fees'], $row['fee']);
+  }
+
+  return $serviceInfo; //returnt that associative array
 }
 ?>

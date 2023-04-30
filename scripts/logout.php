@@ -51,6 +51,7 @@ session_start();
     <?php
     unset($_SESSION['email']);
     unset($_SESSION['privilege']);
+    unset($_SESSION['id']);
 
     echo "<div class='alert alert-success w-75' role='alert'>
       You have logged out sucessfully!

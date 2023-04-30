@@ -64,7 +64,7 @@ require_once dirname(__FILE__) . "/../components/header.php"; //display the head
 </div>
 
 <div class="main-container my-5" id="contact-form">
-  <?php require_once dirname(__FILE__) . "/../components/contact-card.php" //renders the contact info card with map and details?>
+  <?php require_once dirname(__FILE__) . "/../components/contactCard.php" //renders the contact info card with map and details?>
   <div class="card w-55 p-5">
     <form action="/ChildCare/pages/contact.php" method="POST" novalidate id="contact">
       <h2>Get in touch
@@ -170,7 +170,7 @@ require_once dirname(__FILE__) . "/../components/header.php"; //display the head
       </div>
       <?php
       if (isset($_COOKIE['enquirySent'])) {
-        echo "<span class='text-danger'>Sorry but you can only send a query once every 2 minutes.Please Try again Later</span>";
+        echo "<span class='text-danger'>Sorry but you can only send a query once every 2 minutes. Please Try again Later</span>";
       }
       ?>
     </form>

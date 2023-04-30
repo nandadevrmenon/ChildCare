@@ -1,7 +1,7 @@
 <?php
 
 $feesArray = array();
-$sqlString = "SELECT `fee` FROM `fees`;";
+$sqlString = "SELECT `fee` FROM `service`;";
 $statement = $GLOBALS['db']->prepare($sqlString); //preapre the above statement
 $statement->execute();
 $result = $statement->get_result();
@@ -18,7 +18,7 @@ $fiveFullDay = $feesArray[5];
 
 
 $feeBoxes = <<<ID
-<div class="container mb-3 mt-3">
+<div class="container mb-3 mt-3" id="feeBoxContainer">
   <div class="card-group">
     <div class="card">
       <img class="card-img" style="filter: brightness(50%);" src="/ChildCare/images/daycare10.jpeg"
@@ -45,8 +45,8 @@ $feeBoxes = <<<ID
         alt="Daycare Image 1">
       <div class="card-img-overlay text-white">
         <h1 class="card-title">Five Days</h1>
-        <h4 class="card-text lh-sm">Half Day: €$fiveHalfDay</h4>
-        <h4 class="card-text lh-sm">Full Day: €$fiveFullDay</h4>
+        <h4>Half Day: €$fiveHalfDay</h4>
+        <h4>Full Day: €$fiveFullDay</h4>
       </div>
     </div>
   </div>
