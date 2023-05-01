@@ -135,5 +135,13 @@ function validatePlan($plan)
     $GLOBALS["errors"]["plan"] = "Illegal value for plan.Don't mess with html.";
   }
 }
+function validateFee($key, $value)
+{ //key is name of form input which we can use as name for error value is the input value
+  if (!is_numeric($value)) {
+    $GLOBALS["errors"][$key] = "Fee has to be numeric.";
+  } else if ($value > 2000 || $value < 80) {
+    $GLOBALS["errors"][$key] = "Fee has to be betweeen 80-2000";
+  }
+}
 
 ?>
