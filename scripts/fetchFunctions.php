@@ -74,4 +74,18 @@ function getServiceInfo()
 
   return $serviceInfo; //returnt that associative array
 }
+
+
+function updateFees($id, $value)
+{
+  $sqlString = "UPDATE `service` SET `fee` = ? WHERE `id` = ?;";
+  $statement = $GLOBALS['db']->prepare($sqlString); //prepare the above statement
+  $statement->bind_param('ss', $value, $id); //we bind the variables into the statemaent
+  $statement->execute();
+  if (mysqli_affected_rows($GLOBALS['db']) == 1) {
+    return true;
+  }
+  return false;
+
+}
 ?>
