@@ -15,7 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (count($errors) == 0) {
     if (userAlreadyExists($email)) { //we check if that user already exists in the table and if not we
       $pwInDatabase = getUserPW($email);
-      echo password_verify($password, $pwInDatabase);
+      echo $pwInDatabase;
+      echo $password;
+      var_dump(password_verify($password, $pwInDatabase));
       if (password_verify($password, $pwInDatabase)) { //if a row is affected(successful insertion)
         $_SESSION['email'] = $email;
         if (userIsAdmin($email))
