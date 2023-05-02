@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($statement->affected_rows == 1) { //if a row is affected(successful insertion)
       setcookie('enquirySent', 'true', time() + 120, '/', '', 0); //we set cookie that an enquiry Has been sent and use that cookie to disable the form for a few minutes
       $_COOKIE['enquirySent'] = true;
+      $GLOBALS['setNow'] = true;
     }
   }
 }
@@ -169,8 +170,11 @@ require_once dirname(__FILE__) . "/../components/header.php"; //display the head
         </div>
       </div>
       <?php
+      if ($GLOBALS['setNow']) {
+        echo "<span class='text-success'>Message sent successfully! <br></span>";
+      }
       if (isset($_COOKIE['enquirySent'])) {
-        echo "<span class='text-danger'>Sorry but you can only send a query once every 2 minutes. Please Try again Later</span>";
+        echo "<span class='text-danger'>You can only send a message once every 2 minutes. Please Try again Later</span>";
       }
       ?>
     </form>

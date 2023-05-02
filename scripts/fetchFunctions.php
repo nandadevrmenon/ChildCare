@@ -88,4 +88,19 @@ function updateFees($id, $value)
   return false;
 
 }
+
+function changeVisibility($id)
+{
+  $sqlString = "UPDATE `testimonial` SET `status` = !`status` WHERE `id` = ?;";
+  $statement = $GLOBALS['db']->prepare($sqlString); //prepare the above statement
+  $statement->bind_param('s', $id); //we bind the variables into the statemaent
+  $statement->execute();
+  if (mysqli_affected_rows($GLOBALS['db']) == 1) {
+    return true;
+  }
+  return false;
+
+}
+
+
 ?>

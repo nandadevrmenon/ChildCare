@@ -2,7 +2,7 @@
 //EVERY input is run through some kind of cleaning and then some kind of validation using the functions in this file
 function cleanInput($input)
 { //trims removes tags and makes first letter uppercase
-  ucwords(trim(htmlentities(htmlspecialchars(strip_tags($input))))); //removes html entities trims ad strips tags from input
+  $input = ucwords(trim(htmlentities(htmlspecialchars(strip_tags($input))))); //removes html entities trims ad strips tags from input
   $input = preg_replace('/\s+/', '', $input); //removes whitespace
   $input = preg_replace('/-/', '', $input); //removes hyphens
   return $input;
@@ -95,7 +95,7 @@ function validatepasswords($pw, $confirmPw)
 function validateSubject($subject)
 {
   if (empty($subject)) {
-    $GLOBALS["errors"]["subject"] = "Feild Cannot be empty";
+    $GLOBALS["errors"]["subject"] = "Field Cannot be empty";
   } else if (strlen($subject) > 200) {
     $GLOBALS["errors"]["subject"] = "Must be shorter than 200 characters.";
   } else if (!preg_match("/^[A-Za-z.,' ;:!@€$%&*()+=}{<>-s]*$/", $subject)) {
@@ -108,7 +108,7 @@ function validateBigText($text)
   /\A[A-Za-z0-9.,\s;:#!@€\$%&\(*)=\+}{<>-s]*\z$/m
   ID;
   if (empty($text)) {
-    $GLOBALS["errors"]["details"] = "Feild Cannot be empty";
+    $GLOBALS["errors"]["details"] = "Field Cannot be empty";
   } else if (strlen($text) > 700) {
     $GLOBALS["errors"]["details"] = "Must be shorter than 700 characters.";
   } else if (!preg_match($regex, $text)) {
