@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($statement->affected_rows == 1) { //if a row is affected(successful insertion)
       setcookie('testimonialSent', 'true', time() + 86400, '/', '', 0); //we set cookie that an enquiry Has been sent and use that cookie to disable the form for a day
       $_COOKIE['testimonialSent'] = true;
+      $GLOBALS['sentNow'] = true;
     }
   }
 }
@@ -74,8 +75,11 @@ if (isset($_SESSION['email'])) {
         </div>
       </div>
       <?php
+      if (isset($GLOBALS['sentNow'])) {
+        echo "<span class='text-success'> Your testimonial has been sent to the admin for approval. Thanks! <br></span>";
+      }
       if (isset($_COOKIE['testimonialSent'])) {
-        echo "<span class='text-danger'>Sorry but you can only submit a testimonial once a day. Please Try again Later</span>";
+        echo "<span class='text-danger'>You can only submit one testimonial a day.</span>";
       }
       ?>
     </form>
