@@ -264,6 +264,16 @@ body{
 	text-align: justify;
 }
 
+.carousel-inner > .carousel-item > img {
+	width:640px;
+	height:500px;
+	object-fit: cover;
+}
+
+.carousel{
+	position: relative;
+	top:-20px;
+}
 
 
 
