@@ -57,9 +57,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
   if (count($GLOBALS['errors']) == 0) {
-    updateHomeSection(1, $header1, $body1, $link1, $img1);
-    updateHomeSection(2, $header2, $body2, $link2, $img2);
-    updateHomeSection(3, $header3, $body3, $link3, $img3);
+    $updated = updateHomeSection(1, $header1, $body1, $link1, $img1);
+    $updated = updateHomeSection(2, $header2, $body2, $link2, $img2) || $updated;
+    $updated = updateHomeSection(3, $header3, $body3, $link3, $img3) || $updated;
+
+    if ($updated) {
+      header("Location:editHome.php?section=updated");
+    }
   }
 
 

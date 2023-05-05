@@ -198,4 +198,28 @@ function validateImageID($image, $imageNum)
     $GLOBALS["errors"][$imageNum] = "Please select a valid value from the drop down. ";
   }
 }
+
+
+function validateLogDate($date)
+{
+  if (empty($date))
+    return;
+  $startDate = strtotime(date('Y-m-d', strtotime($date)));
+  $currentDate = strtotime(date('Y-m-d'));
+  if ($startDate > $currentDate) {
+    $GLOBALS["errors"]['date'] = "Date of log must be in the past"; //check that it is within bounds
+    return;
+  }
+}
+
+function cleanChildID($id, $childNamesArray)
+{
+  foreach ($childNamesArray as $childId => $name) {
+    if ($id == $childId) {
+      return $id;
+    }
+  }
+  return 0;
+
+}
 ?>

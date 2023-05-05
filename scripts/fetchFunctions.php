@@ -134,4 +134,21 @@ function updateHomeSection($id, $header, $body, $link, $image)
 }
 
 
+function fetchChildNames()
+{
+  $childNames = array();
+  $sqlString = "SELECT id, fname, lname FROM child WHERE `user-id` = ? ;";
+  $statement = $GLOBALS['db']->prepare($sqlString); //prepare the above statement
+  $statement->bind_param('s', $_SESSION['userID']); //we bind the variables into the statemaent
+  $statement->execute();
+  $result = $statement->get_result();
+
+  while ($row = $result->fetch_assoc()) {
+    $childNames[$row['id']] = $row['fname'] . " " . $row['lname'];
+  }
+
+  return $childNames; //returnt that associative array
+
+}
+
 ?>
