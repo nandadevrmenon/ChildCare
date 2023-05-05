@@ -12,8 +12,15 @@ if (!isset($_SESSION['privilege'])) {
   return;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  if (isset($_GET['delete'])) {
+    echo "<div class='alert alert-success w-75' role='alert'>
+    Message deleted successfully.
+   </div>";
+  }
+} else if ($_SERVER["REQUEST_METHOD"] == "POST") {
   deleteMessage($_POST['messageID']);
+  header("Location:messages.php?delete=success");
 }
 
 

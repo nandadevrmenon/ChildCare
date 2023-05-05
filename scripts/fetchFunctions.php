@@ -88,4 +88,50 @@ function updateFees($id, $value)
   return false;
 
 }
+
+function changeVisibility($id)
+{
+  $sqlString = "UPDATE `testimonial` SET `status` = !`status` WHERE `id` = ?;";
+  $statement = $GLOBALS['db']->prepare($sqlString); //prepare the above statement
+  $statement->bind_param('s', $id); //we bind the variables into the statemaent
+  $statement->execute();
+  if (mysqli_affected_rows($GLOBALS['db']) == 1) {
+    return true;
+  }
+  return false;
+
+}
+
+
+function fetchHomeSections()
+{
+  $allSections = array();
+
+  $sqlString = "SELECT E.*, L.text, L.url as `link` FROM (SELECT H.id, H.header, H.body, H.`img-id`, H.`link-id`, I.name, I.url FROM `home` H INNER JOIN `images` I ON H.`img-id` = I.`id` ) E INNER JOIN `link` L ON E.`link-id` = L.`id`;";
+  $statement = $GLOBALS['db']->prepare($sqlString); //prepare the above statement
+  $statement->execute();
+  $result = $statement->get_result();
+
+  while ($row = $result->fetch_assoc()) {
+    array_push($allSections, $row);
+  }
+
+  return $allSections; //returnt that associative array
+
+
+}
+
+function updateHomeSection($id, $header, $body, $link, $image)
+{
+  $sqlString = "UPDATE `home` SET `header` = ?, `body` = ?, `img-id` = ?, `link-id` = ? WHERE `id` = ?;";
+  $statement = $GLOBALS['db']->prepare($sqlString); //prepare the above statement
+  $statement->bind_param('ssiis', $header, $body, $image, $link, $id); //we bind the variables into the statemaent
+  $statement->execute();
+  if (mysqli_affected_rows($GLOBALS['db']) == 1) {
+    return true;
+  }
+  return false;
+}
+
+
 ?>
