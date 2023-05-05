@@ -62,7 +62,7 @@ session_start();
   </div>
 
   <footer class="site-footer">
-    <div class="blue-bottom-border w-100">
+    <div class="blue-bottom-border blue-top-border w-100">
       <div class="d-flex px-5 py-4 w-75 mx-auto">
         <div class="ms-5 me-auto d-none d-lg-block">
           <span>Connect with us on these social networks:</span>

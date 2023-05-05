@@ -12,13 +12,13 @@ $carousel = "<div id='carouselExampleIndicators' class='carousel slide' data-bs-
   </div>
   <div class='carousel-inner carousel-container'>
     <div class='carousel-item active'>
-      <img src='/ChildCare/images/banner1.jpeg' class='d-block w-100' alt='...'>
-    </div>
-    <div class='carousel-item'>
       <img src='/ChildCare/images/banner2.jpeg' class='d-block w-100' alt='...'>
     </div>
     <div class='carousel-item'>
       <img src='/ChildCare/images/banner3.jpeg' class='d-block w-100' alt='...'>
+    </div>
+    <div class='carousel-item'>
+      <img src='/ChildCare/images/banner1.jpeg' class='d-block w-100' alt='...'>
     </div>
   </div>
   <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev'>
