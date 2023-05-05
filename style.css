@@ -12,6 +12,11 @@ body{
 	scroll-behavior: smooth;
 }
 
+body.home-page-body{
+	background-color: #FBF3EF;
+	background-image: none;
+}
+
 .page{
 	position: relative ;
 	top:50px;
@@ -211,6 +216,98 @@ body{
 	font-weight:400;
 }
 
+/* Index Page */
+
+.home-options{
+	height: 45vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #FBF3EF;
+	color: #ce3e4a;
+	position: relative;
+	top:-20px
+}
+
+.options-list{
+	width: 75vw;
+	display: flex;
+	flex-direction: row nowrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.option-item{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.option-item img{
+	width: 50px;
+	height: 50px;
+	filter: invert(33%) sepia(62%) saturate(1190%) hue-rotate(316deg) brightness(80%) contrast(103%);
+}
+
+.feature{
+
+}
+
+.layer-1{
+	aspect-ratio: 3/1;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-image: url(/ChildCare/images/layers1.svg);
+}
+
+.layer-2 img{
+	margin-right: 0 !important;
+}
+
+.layer-2{
+	aspect-ratio: 9/4;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-image: url(/ChildCare/images/layers2.svg);
+}
+
+.layer-3{
+	aspect-ratio: 9/4;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-image: url(/ChildCare/images/waves3.svg);
+	color:#2f319e;
+}
+
+.layer-3 img{
+	margin-left: 0 !important;
+}
+
+.layer-4{
+	aspect-ratio: 9/3;
+	width: 100%;
+	background-color:#FBF3EF;
+	color: #ce3e4a;
+	padding: 2.7rem 0;
+}
+
+.layer-4 img{
+	margin-right: 0 !important;
+}
+
+
+/* Index Ediy */
+
+#editHome textarea{
+	min-height: 10rem;
+}
 
 
 /* All the content based css here */
@@ -264,6 +361,16 @@ body{
 	text-align: justify;
 }
 
+.carousel-inner > .carousel-item > img {
+	width:640px;
+	height:500px;
+	object-fit: cover;
+}
+
+.carousel{
+	position: relative;
+	top:-20px;
+}
 
 
 
@@ -284,8 +391,9 @@ footer img{
 
 .blue-bottom-border{
 	border-bottom: 1px solid #a9d0eb;
+	
 }
 
-.blue-bottom-border{
+.blue-top-border{
 	border-top: 1px solid #a9d0eb;
 }
