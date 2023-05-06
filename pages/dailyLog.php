@@ -55,8 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </select>
       </div>
       <div class="row g-2 mb-3">
-        <label for="date">Filter by Date</label>
-        <input name="date" id="date" type="date" min="2020-01-01" max="<?php echo date("Y-m-d") ?>"></input>
+        <label for="date">Filter by Date (Leave empty for all logs)</label>
+        <input name="date" id="date" type="date" min="2020-01-01" max="<?php echo date("Y-m-d") ?>">
+        <?php if (isset($GLOBALS['errors']['date']))
+          echo "<span class='text-danger'>Date has to be in the past.</span>"; ?>
       </div>
       <div class="row g-2">
         <div class="col-auto">
