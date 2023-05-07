@@ -173,7 +173,12 @@ function addChildLog($childID, $addDate, $breakfast, $lunch, $temp, $activity)
   $sqlString = "INSERT INTO `dailylog`(`child-id`,`date`,`temp`,`breakfast`,`lunch`,`activity`) VALUES (?, ?, ?, ?, ?, ?);";
   $statement = $GLOBALS['db']->prepare($sqlString); //prepare the above statement
   $statement->bind_param('ssisss', $childID, $addDate, $temp, $breakfast, $lunch, $activity); //we bind the variables into the statemaent
-  $statement->execute();
+  try {
+    $statement->execute();
+  } catch (mysqli_sql_exception $sqle) {
+    return false;
+  }
+
   if ($statement->affected_rows == 1)
     return true;
   return false;

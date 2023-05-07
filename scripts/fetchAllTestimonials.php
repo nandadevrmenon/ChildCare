@@ -4,7 +4,7 @@
 $GLOBALS['allTestimonials'] = "<p>No testimonials.</p>"; //fallback
 
 
-$sqlString = "SELECT `testimonial`.`id`,`testimonial`.`body`,`user`.`fname`,`testimonial`.`status` FROM `testimonial` INNER JOIN `user` on `testimonial`.`user-id` = `user`.`id`;";
+$sqlString = "SELECT `testimonial`.`id`,`testimonial`.`body`,`user`.`fname`,`testimonial`.`date`,`service`.`name`,`testimonial`.`status` FROM `testimonial` INNER JOIN `user` on `testimonial`.`user-id` = `user`.`id`  INNER JOIN `service` ON `testimonial`.`service-id` = `service`.`id` ORDER BY `id` DESC;";
 $statement = $GLOBALS['db']->prepare($sqlString); //prepare the above statement
 $statement->execute();
 $result = $statement->get_result();
@@ -15,6 +15,8 @@ if ($result->num_rows != 0) {
     $fname = $row['fname'];
     $id = $row['id'];
     $status = $row['status'];
+    $service = $row['name'];
+    $date = date("d-m-Y", strtotime($row['date']));
     $statusHTML = "<h4 class='text-danger my-0 ms-4'> Not Visible </h4>";
 
     if ($status) {
@@ -25,6 +27,10 @@ if ($result->num_rows != 0) {
     <div class='card-header d-flex '>
       <h4 class='my-0 me-3'>$fname</h4>
       $statusHTML
+    </div>
+    <div class='card-header d-flex justify-content-between'>
+    <p class='card-text my-0'>Service : $service</p>
+    <p class='card-text my-0'>$date</p>
     </div>
     <div class='card-body'>
       <p class='card-text'>$body</p>

@@ -18,9 +18,9 @@ $childNamesArray = fetchAllChildNames(); //fecthed the names and IDs for all chi
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") { //on normal page load 
   $childrenLogsHTML = getAllChildrenLogs(0, $date); //we load all children with no specific date
-  if ($_GET['log'] = "added") {
+  if ($_GET['log'] == "added") {
     echo "<div class='alert alert-success w-75' role='alert'>
-    Log added successfully;
+    Log added successfully
    </div>";
   }
 
@@ -51,6 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") { //on normal page load
     if (count($errors) == 0) { //if no errors
       if (addChildLog($childID, $addDate, $breakfast, $lunch, $temp, $activity)) {
         header("Location:addLog.php?log=added");
+      } else {
+        $duplicateEntry = true;
       }
 
     }
@@ -167,6 +169,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") { //on normal page load
             if (isset($addDate) && isset($_POST['add']))
               echo "value='$addDate'";
             ?>>
+        </div>
+      </div>
+      <div class="row g-2 mb-3">
+        <div class="col-md">
+          <?php if ($duplicateEntry)
+            echo "<span class='text-danger'>That log couldn't be added. A log for the same child and date might already exist.</span>"; ?>
         </div>
       </div>
       <div class="row g-2">
