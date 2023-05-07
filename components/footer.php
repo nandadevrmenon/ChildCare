@@ -56,14 +56,14 @@
                 <a href='/ChildCare/pages/messages.php' class='text-reset'>Show Messages</a>
               </p>";
               echo "<p>
-                <a href='/ChildCare/pages/editTestimonials.php' class='text-reset'>Review Testimonials</a>
+                <a href='/ChildCare/pages/reviewTestimonials.php' class='text-reset'>Review Testimonials</a>
               </p>";
               echo "<p>
                 <a href='/ChildCare/pages/addLog.php' class='text-reset'>Edit Daily Log</a>
               </p>";
             } else { //if parent
               echo "<p>
-                <a href='/ChildCare/pages/addTestimonials.php' class='text-reset'>Testimonials</a>
+                <a href='/ChildCare/pages/testimonials.php' class='text-reset'>Testimonials</a>
               </p>";
               echo "<p>
               <a href='/ChildCare/pages/contact.php' class='text-reset'>Contact Us</a>
@@ -77,7 +77,7 @@
               </p>";
           } else { //if public
             echo "<p>
-                <a href='/ChildCare/pages/viewTestimonials.php' class='text-reset'>Testimonials</a>
+                <a href='/ChildCare/pages/testimonials.php' class='text-reset'>Testimonials</a>
               </p>";
             echo "<p>
               <a href='/ChildCare/pages/contact.php' class='text-reset'>Contact Us</a>

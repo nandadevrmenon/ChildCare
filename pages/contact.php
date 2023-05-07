@@ -181,6 +181,11 @@ require_once dirname(__FILE__) . "/../components/header.php"; //display the head
   </div>
 </div>
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  echo "<script>
+  window.scrollTo(0,560);
+</script>";
+}
 require_once dirname(__FILE__) . "/../components/faqs.php"; // renders the static faqs
 require_once(dirname(__FILE__) . "/../components/footer.php");
 ?>

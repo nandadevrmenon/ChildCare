@@ -18,7 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (count($errors) == 0 && !isset($_COOKIE['testimonialSent'])) { //if there are no errors  and we havent sent a query in the past 2 minutes we submit the query
     $sqlString = "INSERT INTO `testimonial` ( `user-id`,`body`,`service-id`,`date`,`status`) VALUES (?, ?, ?, ?, false)";
     $statement = $GLOBALS['db']->prepare($sqlString); //prepare the statement
-    $statement->bind_param('ssis', $_SESSION['userID'], $body, $serviceID, date("Y-m-d")); //prevents sql injections
+    $CurrentDate = date("Y-m-d");
+    $statement->bind_param('ssis', $_SESSION['userID'], $body, $serviceID, $CurrentDate); //prevents sql injections
     $statement->execute(); //we insert the query into the database
     if ($statement->affected_rows == 1) { //if a row is affected(successful insertion)
       setcookie('testimonialSent', 'true', time() + 86400, '/', '', 0); //we set cookie that an enquiry Has been sent and use that cookie to disable the form for a day
@@ -113,6 +114,10 @@ if (isset($_SESSION['email'])) {
 
   <?php
 }
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  echo "<script>
+  window.scrollTo(0,1500);
+</script>";
+}
 require_once(dirname(__FILE__) . "/../components/footer.php");
 ?>
