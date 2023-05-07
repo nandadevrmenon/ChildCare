@@ -114,6 +114,10 @@ if (isset($_SESSION['email'])) {
 
   <?php
 }
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  echo "<script>
+  window.scrollTo(0,1500);
+</script>";
+}
 require_once(dirname(__FILE__) . "/../components/footer.php");
 ?>
