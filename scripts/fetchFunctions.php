@@ -183,4 +183,42 @@ function addChildLog($childID, $addDate, $breakfast, $lunch, $temp, $activity)
     return true;
   return false;
 }
+
+
+
+function getLogInfo($id)
+{
+  $logInfo = array();
+  $sqlString = "SELECT D.*, C.fname, C.lname FROM dailylog D INNER JOIN child C ON D.`child-id` = C.`id` WHERE D.`id` = ? ;";
+  $statement = $GLOBALS['db']->prepare($sqlString); //prepare the above statement
+  $statement->bind_param("s", $id);
+  $statement->execute();
+  $result = $statement->get_result();
+
+  $result = $result->fetch_assoc();
+
+  $logInfo['id'] = $result['id'];
+  $logInfo['breakfast'] = $result['breakfast'];
+  $logInfo['date'] = $result['date'];
+  $logInfo['temp'] = $result['temp'];
+  $logInfo['lunch'] = $result['lunch'];
+  $logInfo['activity'] = $result['activity'];
+  $logInfo['fname'] = $result['fname'];
+  $logInfo['lname'] = $result['lname'];
+
+  return $logInfo; //returnt that associative array
+}
+
+
+function updateChildLog($id, $breakfast, $lunch, $activity, $temp)
+{
+  $sqlString = "UPDATE `dailylog` SET `breakfast` = ?, `lunch` = ?, `activity` = ?, `temp` = $temp WHERE `id` = ?;";
+  $statement = $GLOBALS['db']->prepare($sqlString); //prepare the above statement
+  $statement->bind_param('ssss', $breakfast, $lunch, $activity, $id); //we bind the variables into the statemaent
+  $statement->execute();
+  if (mysqli_affected_rows($GLOBALS['db']) == 1) {
+    return true;
+  }
+  return false;
+}
 ?>

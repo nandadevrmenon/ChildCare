@@ -106,9 +106,9 @@
       </div>
     </div>
   </div>
-  <div class="blue-bottom-border w-100">
+  <div class="blue-bottom-border blue-top-border w-100">
     <div class="d-flex px-5 py-1 w-75 mx-auto">
-      <div class="ms-auto me-auto d-none d-lg-block blue-top-border">
+      <div class="ms-auto me-auto d-none d-lg-block">
         <span> &copy;
           <?php echo date("Y"); ?> Tiny Toddlers
         </span>
