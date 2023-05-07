@@ -7,9 +7,13 @@
         <span>Connect with us on these social networks:</span>
       </div>
       <div class="me-5 d-flex w-50 align-items-center justify-content-end">
-        <a><img src="/ChildCare/images/icons/instagram.svg" alt="Instagram Logo" class="me-4"></a>
+        <!-- Shameless instagram plug -->
+        <a target="_blank" href="https://www.instagram.com/_nandadev_/?hl=en"><img
+            src="/ChildCare/images/icons/instagram.svg" alt="Instagram Logo" class="me-4"></a>
+
         <a><img src="/ChildCare/images/icons/facebook.svg" alt="Facebook Logo"></a>
-        <a><img src="/ChildCare/images/icons/github.svg" alt="Github Logo" class="ms-4"></a>
+        <a target="_blank" href="https://github.com/nandadevrmenon/ChildCare"><img
+            src="/ChildCare/images/icons/github.svg" alt="Github Logo" class="ms-4"></a>
       </div>
     </div>
   </div>
@@ -33,16 +37,16 @@
             Services
           </h6>
           <p>
-            <a href="#!" class="text-reset">Baby</a>
+            <a href="/ChildCare/pages/services.php#daycare" class="text-reset">Daycare Services</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Wobbler</a>
+            <a href="/ChildCare/pages/services.php#summer" class="text-reset">Summer Camp</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Toddler</a>
+            <a href="/ChildCare/pages/services.php#snacks" class="text-reset">Snacks and Meals</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Pre-School</a>
+            <a href="/ChildCare/pages/services.php#play" class="text-reset">Play Areas</a>
           </p>
         </div>
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
