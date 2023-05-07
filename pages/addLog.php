@@ -20,7 +20,15 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") { //on normal page load
   $childrenLogsHTML = getAllChildrenLogs(0, $date); //we load all children with no specific date
   if ($_GET['log'] == "added") {
     echo "<div class='alert alert-success w-75' role='alert'>
-    Log added successfully
+    Log added successfully!
+   </div>";
+  } else if ($_GET['update'] == "success") {
+    echo "<div class='alert alert-success w-75' role='alert'>
+    Log updated successfully!
+   </div>";
+  } else if ($_GET['delete'] == 'success') {
+    echo "<div class='alert alert-danger w-75' role='alert'>
+    Log deleted successfully!
    </div>";
   }
 

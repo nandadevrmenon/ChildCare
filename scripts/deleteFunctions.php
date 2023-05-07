@@ -16,4 +16,11 @@ function deleteChild($childID)
   $statement->execute(); //we delete the message from the database
 }
 
+function deleteChildLog($id)
+{
+  $sqlString = "DELETE FROM `dailylog` WHERE `id` = ?;"; //this prevents malicious parents from deleting other parents' children
+  $statement = $GLOBALS['db']->prepare($sqlString); //prepare the statement
+  $statement->bind_param('s', $id); //prevents sql injections
+  $statement->execute(); //we delete the message from the database
+}
 ?>

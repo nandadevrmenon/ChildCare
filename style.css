@@ -250,8 +250,8 @@ body.home-page-body{
 	filter: invert(33%) sepia(62%) saturate(1190%) hue-rotate(316deg) brightness(80%) contrast(103%);
 }
 
-.feature{
-
+.feature img{
+	border-radius: 10px;
 }
 
 .layer-1{
@@ -308,6 +308,9 @@ body.home-page-body{
 #editHome textarea{
 	min-height: 10rem;
 }
+
+
+
 
 
 /* All the content based css here */

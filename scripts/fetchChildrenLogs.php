@@ -100,6 +100,7 @@ function getAllChildrenLogs($index, $date)
   $result = $statement->get_result();
   if ($result->num_rows != 0) { //if result exists
     while ($row = $result->fetch_assoc()) {
+      $logID = $row['id'];
       $fname = $row['fname'];
       $lname = $row['lname']; //we get all the values from records
       $temp = $row['temp'];
@@ -118,10 +119,11 @@ function getAllChildrenLogs($index, $date)
         <span>Temperature : $temp &#8451;</span>
         <span>Breakfast : $breakfast</span>
         <span>Lunch : $lunch</span>
-      </div>
+        </div>
         <div class='card-body'>
         <h5 class='card-title'>Activity</h5>
           <p class='card-text'>$activity</p>
+          <a href='/ChildCare/pages/editLog.php?id=$logID' class='btn btn-primary'>Edit Log</a>
         </div>
       </div>";
       //add it as pretty html cards to the cards variable
