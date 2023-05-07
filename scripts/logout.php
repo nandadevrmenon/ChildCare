@@ -51,11 +51,16 @@ session_start();
     <?php
     unset($_SESSION['email']);
     unset($_SESSION['privilege']);
-    unset($_SESSION['id']);
-
-    echo "<div class='alert alert-success w-75' role='alert'>
+    unset($_SESSION['userID']);
+    if ($_GET['delete'] == "success") {
+      echo "<div class='alert alert-success w-75' role='alert'>
+     Your Account has been Deleted. Sad to see you go : (
+    </div>";
+    } else {
+      echo "<div class='alert alert-success w-75' role='alert'>
       You have logged out sucessfully!
     </div>";
+    }
     echo "<a class='btn btn-primary' href='/ChildCare/' role='button'>Go to Home Page</a>";
     ?>
 
