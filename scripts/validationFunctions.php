@@ -198,4 +198,98 @@ function validateImageID($image, $imageNum)
     $GLOBALS["errors"][$imageNum] = "Please select a valid value from the drop down. ";
   }
 }
+
+function cleanAddDate($date)
+{
+  if (empty($date)) {
+    return (date('Y-m-d'));
+  } else
+    return $date;
+}
+
+function validateLogDate($date)
+{
+  if (empty($date))
+    return;
+  $startDate = strtotime(date('Y-m-d', strtotime($date)));
+  $currentDate = strtotime(date('Y-m-d'));
+  if ($startDate > $currentDate) {
+    $GLOBALS["errors"]['date'] = "Date of log must be in the past"; //check that it is within bounds
+    return;
+  }
+}
+
+function validateAddDate($date)
+{
+  if (empty($date))
+    return;
+  $startDate = strtotime(date('Y-m-d', strtotime($date)));
+  $currentDate = strtotime(date('Y-m-d'));
+  if ($startDate > $currentDate) {
+    $GLOBALS["errors"]['addDate'] = "Date of log must be in the past"; //check that it is within bounds
+    return;
+  }
+}
+
+function cleanChildID($id, $childNamesArray)
+{
+  foreach ($childNamesArray as $childId => $name) {
+    if ($id == $childId) {
+      return $id;
+    }
+  }
+  return 0;
+
+}
+
+
+function validateChildID($childID)
+{
+  if ($childID == 0) {
+    $GLOBALS['errors']['childID'] = "Please select a child.";
+  }
+
+} //after cleaning we only have to check if it is zero
+
+function validateFood($food, $meal)
+{
+  $regex = <<<ID
+  /\A[A-Za-z,\s]*\z$/m
+  ID;
+  if (empty($food)) {
+    $GLOBALS["errors"][$meal] = "Field Cannot be empty";
+  } else if (strlen($food) > 50) {
+    $GLOBALS["errors"][$meal] = "Must be shorter than 50 characters.";
+  } else if (!preg_match($regex, $food)) {
+    $GLOBALS["errors"][$meal] = "Illegal Character Found.Only comma seperated words allowed.";
+  }
+}
+
+function validateActivity($activity)
+{
+  $regex = <<<ID
+  /\A[A-Za-z0-9.,\s;:#'\'!@€\$%&\(*)=\+}{<>-s]*\z$/m
+  ID;
+  if (empty($activity)) {
+    $GLOBALS["errors"]['activity'] = "Field Cannot be empty";
+  } else if (strlen($activity) > 200) {
+    $GLOBALS["errors"]['activity'] = "Must be shorter than 200 characters.";
+  } else if (!preg_match($regex, $activity)) {
+    $GLOBALS["errors"]['activity'] = "Illegal Character Found. Please write in plain english. No hyphens";
+  }
+}
+
+
+function validateTemp($temp)
+{
+  if (empty($temp)) {
+    $GLOBALS["errors"]['temp'] = "Field Cannot be empty";
+  } else if (!is_numeric($temp)) {
+    $GLOBALS["errors"]['temp'] = "Has to be Numeric";
+  } else if ($temp > 40) {
+    $GLOBALS["errors"]['temp'] = "Temperature is Too High";
+  } else if ($temp < 34) {
+    $GLOBALS["errors"]['temp'] = "Temperature is Too Low";
+  }
+}
 ?>
