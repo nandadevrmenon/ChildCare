@@ -129,9 +129,9 @@ $lname = $logInfo['lname'];
       <div class="col-md">
         <label for="date" class="form-label">Date (Cannot be Changed)</label>
         <input class="form-control form-control-sm" type="date" min="2020-01-01" max="<?php echo date("Y-m-d") ?>"
-          name="addDate" <?php
-          if (isset($addDate))
-            echo "value='$addDate'";
+          name="date" <?php
+          if (isset($date))
+            echo "value='$date'";
           ?> disabled readonly>
       </div>
     </div>

@@ -68,19 +68,23 @@ session_start();
 
   <footer class="site-footer">
     <div class="blue-bottom-border blue-top-border w-100">
-      <div class="d-flex px-5 py-4 w-75 mx-auto">
+      <div class="d-flex px-5 py-3 w-75 mx-auto">
         <div class="ms-5 me-auto d-none d-lg-block">
           <span>Connect with us on these social networks:</span>
         </div>
         <div class="me-5 d-flex w-50 align-items-center justify-content-end">
-          <a><img src="/ChildCare/images/icons/instagram.svg" alt="Instagram Logo" class="me-4"></a>
+          <!-- Shameless instagram plug -->
+          <a target="_blank" href="https://www.instagram.com/_nandadev_/?hl=en"><img
+              src="/ChildCare/images/icons/instagram.svg" alt="Instagram Logo" class="me-4"></a>
+
           <a><img src="/ChildCare/images/icons/facebook.svg" alt="Facebook Logo"></a>
-          <a><img src="/ChildCare/images/icons/github.svg" alt="Github Logo" class="ms-4"></a>
+          <a target="_blank" href="https://github.com/nandadevrmenon/ChildCare"><img
+              src="/ChildCare/images/icons/github.svg" alt="Github Logo" class="ms-4"></a>
         </div>
       </div>
     </div>
     <div>
-      <div class="container text-center text-md-start mt-5">
+      <div class="container text-center text-md-start mt-4">
         <div class="row mt-3">
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <h6 class="text-uppercase fw-bold mb-4 footer-brand">
@@ -92,22 +96,23 @@ session_start();
             </p>
           </div>
 
+
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
             <h6 class="text-uppercase fw-bold mb-4">
               Services
             </h6>
             <p>
-              <a href="#!" class="text-reset">Baby</a>
+              <a href="/ChildCare/pages/services.php#daycare" class="text-reset">Daycare Services</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Wobbler</a>
+              <a href="/ChildCare/pages/services.php#summer" class="text-reset">Summer Camp</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Toddler</a>
+              <a href="/ChildCare/pages/services.php#snacks" class="text-reset">Snacks and Meals</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Pre-School</a>
+              <a href="/ChildCare/pages/services.php#play" class="text-reset">Play Areas</a>
             </p>
           </div>
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -115,17 +120,18 @@ session_start();
               Useful links
             </h6>
             <p>
-              <a href="/ChildCare/pages/Testimonials.php" class="text-reset">Testimonials</a>
+              <a href='/ChildCare/pages/testimonials.php' class='text-reset'>Testimonials</a>
             </p>
             <p>
-              <a href="/ChildCare/pages/contact.php" class="text-reset">Contact Us</a>
+              <a href='/ChildCare/pages/contact.php' class='text-reset'>Contact Us</a>
             </p>
             <p>
               <a href='/ChildCare/pages/registration.php' class='text-reset'>Registration</a>
             </p>
             <p>
-              <a href="/ChildCare/pages/services.php" class="text-reset">Services</a>
+              <a href='/ChildCare/pages/services.php' class='text-reset'>Services</a>
             </p>
+
           </div>
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
@@ -135,15 +141,25 @@ session_start();
             </p>
             <p>
               <img class="me-3" src="/ChildCare/images/icons/envelope-fill.svg" alt="email icon">
-              info@example.com
+              tiny.toddlers.dublin@gmail.com
             </p>
             <p> <img class="me-3" src="/ChildCare/images/icons/telephone-fill.svg" alt="phone icon"> + 01 234 567 88</p>
           </div>
         </div>
       </div>
     </div>
+    <div class="blue-bottom-border blue-top-border w-100">
+      <div class="d-flex px-5 py-1 w-75 mx-auto">
+        <div class="ms-auto me-auto d-none d-lg-block">
+          <span> &copy;
+            <?php echo date("Y"); ?> Tiny Toddlers
+          </span>
+        </div>
+      </div>
+    </div>
   </footer>
   <script src="/ChildCare/index.js"></script>
+  <script src="/ChildCare/bootstrap.js"></script>
 </body>
 
 </html>
