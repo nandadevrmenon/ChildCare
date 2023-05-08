@@ -216,6 +216,10 @@ body.home-page-body{
 	font-weight:400;
 }
 
+.accordion{
+	width: 85vw;
+}
+
 /* Index Page */
 
 .home-options{
